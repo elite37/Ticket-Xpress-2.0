@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../assets/images/logo.png";
 
 function Navbar() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const getPosition = () => {
+      setScrollPosition(document.documentElement.scrollTop);
+    };
+
+    window.addEventListener("scroll", getPosition);
+  }, [scrollPosition]);
+
   return (
-    <header>
+    <header className={` ${scrollPosition > 50 ? "bg-white" : ""}`}>
       <nav>
         <div className='logo'>
           <Link to='/'>
