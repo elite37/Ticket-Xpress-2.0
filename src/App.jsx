@@ -3,6 +3,7 @@ import Spinner from "./components/Spinner";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // Lazy load pages here for optimization
 const Home = lazy(() => import("./pages/Home"));
@@ -19,6 +20,7 @@ function App() {
             <Route path='/about' component={About} />
           </Switch>
         </Suspense>
+        <Footer />
       </Router>
     </div>
   );

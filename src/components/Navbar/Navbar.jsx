@@ -7,22 +7,22 @@ function Navbar() {
   return (
     <header>
       <nav>
-        <div class='logo'>
+        <div className='logo'>
           <Link to='/'>
             <img src={Logo} alt='Ticket Express' />
           </Link>
         </div>
-        <div class='search'>
+        <div className='search'>
           <input
             type='text'
-            class='fa-search search'
+            className='fa-search search'
             name='search'
             id='search'
             placeholder='Search'
           />
         </div>
-        <div class='nav'>
-          <ul class='lg-nav'>
+        <div className='nav'>
+          <ul className='lg-nav'>
             <li>
               <Link to=''>Bus</Link>
             </li>
@@ -47,13 +47,13 @@ function Navbar() {
               <Link to=''>EN</Link>
             </li>
           </ul>
-          <div class='nav-opener'>
-            <i class='fa fa-bars'></i>
+          <div className='nav-opener'>
+            <i className='fa fa-bars'></i>
           </div>
         </div>
       </nav>
-      <div class='nav__target'>
-        <div class='nav__container'>
+      <div className='nav__target'>
+        <div className='nav__container'>
           <ul>
             <li>
               <Link to=''>Bus</Link>
@@ -79,10 +79,10 @@ function Navbar() {
               <Link to=''>EN</Link>
             </li>
           </ul>
-          <div class='search'>
+          <div className='search'>
             <input
               type='text'
-              class='fa-search search'
+              className='fa-search search'
               name='search'
               id='search'
               placeholder='Search'
