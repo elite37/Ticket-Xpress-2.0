@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contact.css";
+import goodByeImage from "../../assets/images/travel 1.png";
 
 function Contact() {
   return (
@@ -19,7 +20,7 @@ function Contact() {
         </div>
 
         <div className='contact-img'>
-          <img src='../../assets/images/jalingo.png' alt='img' />
+          <img src={goodByeImage} alt='img' />
         </div>
       </div>
 
