@@ -9,10 +9,10 @@ import Destination from "../Destination/Destination";
 function TopDestinations() {
   return (
     <section>
-      <div class='container'>
-        <div class='top-destination'>
-          <h1 class='heading'>Top Destinations</h1>
-          <div class='destinations'>
+      <div className='container'>
+        <div className='top-destination'>
+          <h1 className='heading'>Top Destinations</h1>
+          <div className='destinations'>
             <Destination
               location='Jabi, Abuja'
               price='#29, 900'

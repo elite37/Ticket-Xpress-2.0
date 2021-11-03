@@ -3,37 +3,37 @@ import "./NewsLetter.css";
 
 function NewsLetter() {
   return (
-    <section class='newsletter'>
-      <div class='newsletter__rings'>
+    <section className='newsletter'>
+      <div className='newsletter__rings'>
         <img
           src='../../assets/images/newsletterimage/rings1.png'
           alt=''
-          class='rings1'
+          className='rings1'
         />
         <img
           src='../../assets/images/newsletterimage/rings2.png'
           alt=''
-          class='rings2'
+          className='rings2'
         />
       </div>
-      <h2 class='newsletter__heading'>
+      <h2 className='newsletter__heading'>
         Subscribe to get information, latest news and other interesting offers
         about Ticket Xpress.
       </h2>
-      <form action='' class='newsletter__form'>
-        <div class='newsletter__input'>
+      <form action='' className='newsletter__form'>
+        <div className='newsletter__input'>
           <img
             src='../../assets/images/newsletterimage/mail.png'
             alt=''
-            class='newsletter__icon'
+            className='newsletter__icon'
           />
           <input
             type='text'
             placeholder='Your Email'
-            class='newsletter__text-box'
+            className='newsletter__text-box'
           />
         </div>
-        <button class='btn'>Subscribe</button>
+        <button className='btn'>Subscribe</button>
       </form>
     </section>
   );

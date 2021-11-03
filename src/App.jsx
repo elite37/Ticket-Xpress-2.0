@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BusPage from "./pages/BusPage";
+import FlightPage from "./pages/FlightPage";
+import TrainPage from "./pages/TrainPage";
+import Contact from "./pages/Contact/Contact";
 
 // Lazy load pages here for optimization
 const Home = lazy(() => import("./pages/Home"));
@@ -18,6 +22,10 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
+            <Route path='/bus' component={BusPage} />
+            <Route path='/flight' component={FlightPage} />
+            <Route path='/train' component={TrainPage} />
+            <Route path='/contact' component={Contact} />
           </Switch>
         </Suspense>
         <Footer />

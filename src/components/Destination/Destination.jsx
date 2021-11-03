@@ -9,12 +9,12 @@ const Destination = ({
   destinationImageAlt,
 }) => {
   return (
-    <div class='destination'>
-      <div class='dest-img'>
+    <div className='destination'>
+      <div className='dest-img'>
         <img src={destinationImage} alt={destinationImageAlt} />
       </div>
-      <div class='dest-card'>
-        <div class='area'>
+      <div className='dest-card'>
+        <div className='area'>
           <span>
             <h4>{location}</h4>
           </span>
@@ -22,7 +22,7 @@ const Destination = ({
             <h4>{price}</h4>
           </span>
         </div>
-        <div class='time'>
+        <div className='time'>
           <img src={travelIcon} alt='' />
           <h4>{time}</h4>
         </div>
