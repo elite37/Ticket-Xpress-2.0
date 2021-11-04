@@ -1,6 +1,7 @@
 import React from "react";
 import "./Banner.css";
 import heroImage from "../../assets/images/Hero-Image.png";
+import { Link } from "react-router-dom";
 
 function Banner() {
   return (
@@ -20,9 +21,9 @@ function Banner() {
               comfort of your home.
             </p>
 
-            <a href='./pages/flightbooking.html' id='book-Btn'>
+            <Link to='/flight' id='book-Btn'>
               <span>Book</span>
-            </a>
+            </Link>
           </div>
         </div>
 
