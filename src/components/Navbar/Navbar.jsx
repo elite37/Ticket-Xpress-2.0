@@ -49,7 +49,7 @@ function Navbar() {
               <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-              <Link to=''>
+              <Link to='/signin'>
                 <button>Login</button>
               </Link>
             </li>
@@ -66,22 +66,22 @@ function Navbar() {
         <div className='nav__container'>
           <ul>
             <li>
-              <Link to=''>Bus</Link>
+              <Link to='/bus'>Bus</Link>
             </li>
             <li>
-              <Link to=''>Train</Link>
+              <Link to='/train'>Train</Link>
             </li>
             <li>
-              <Link to=''>Flight</Link>
+              <Link to='/flight'>Flight</Link>
             </li>
             <li>
-              <Link to=''>Bookings</Link>
+              <Link to='/tickets'>My Tickets</Link>
             </li>
             <li>
-              <Link to=''>Contact Us</Link>
+              <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-              <Link to=''>
+              <Link to='/signin'>
                 <button>Login</button>
               </Link>
             </li>
