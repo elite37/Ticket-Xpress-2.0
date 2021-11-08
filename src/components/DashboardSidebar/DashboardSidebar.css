@@ -1,0 +1,16 @@
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding-top: 1rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard__tab {
+  margin-top: 30px;
+}

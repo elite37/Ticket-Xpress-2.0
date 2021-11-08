@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import DashboardNav from "../../components/DashboardNavbar";
+import DashboardSidebar from "../../components/DashboardSidebar";
+import "./Dashboard.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import OverView from "../../components/OverView";
 
 function Dashboard({ role }) {
-  console.log(role);
+  const [user, setUser] = useState("Admin");
   return (
-    <div>
-      {/* To Be Replaced By The Components For The Roles */}
-      {role === "admin" && <h1> Hello Admin </h1>}
-      {role === "agent" && <h1> Hello Agent </h1>}
-      {role === "user" && <h1> Hello User </h1>}
+    <div className='dashboard'>
+      <Router>
+        <DashboardSidebar />
+        <main>
+          <DashboardNav />
+          <div className='dashboard__user'>
+            <h1>Good Morning, {user}</h1>
+          </div>
+          <Switch>
+            <Route exact path='/dashboard' component={OverView} />
+            <Route exact path='/addbooking' component={<h1>Hello World </h1>} />
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
 }

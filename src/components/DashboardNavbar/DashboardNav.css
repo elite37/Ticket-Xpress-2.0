@@ -1,0 +1,67 @@
+.dashboardNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__left,
+.nav__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__left .nav__calendar {
+  margin-right: 10px;
+  color: #f1a501;
+}
+.nav__left p {
+  font-weight: 500;
+}
+
+.nav__right form input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  height: 100%;
+  margin-right: 5px;
+}
+.nav__right form input::placeholder {
+  color: lightgray;
+}
+.nav__right button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  background-color: #f4f4f4;
+  color: gray;
+}
+
+.nav__right .form__group {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin-right: 20px;
+  border-radius: 999px;
+  padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.18);
+}
+
+.nav__right .notifications {
+  background-color: #fff;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 1px solid lightgray;
+}

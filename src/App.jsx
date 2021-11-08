@@ -24,7 +24,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        {isLogin() ? <h1> Dashboard Header </h1> : <Navbar />}
+        {!isLogin() && <Navbar />}
         <Suspense fallback={<Spinner />}>
           <Switch>
             <PublicRoute exact path='/' component={Home} />
@@ -38,7 +38,7 @@ function App() {
             <PublicRoute path='/signup' restricted component={SignUp} />
             <PrivateRoute
               path='/dashboard'
-              role='agent'
+              role='admin'
               component={Dashboard}
             />
           </Switch>

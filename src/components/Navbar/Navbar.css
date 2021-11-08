@@ -30,7 +30,7 @@ header nav {
   margin-top: 10px;
 }
 
-input[type="text"] {
+header input[type="text"] {
   width: 396px;
   font-family: "poppins", sans-serif;
   color: black;
