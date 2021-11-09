@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../assets/images/logo.png";
 
 function Navbar() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const getPosition = () => {
+      setScrollPosition(document.documentElement.scrollTop);
+    };
+
+    window.addEventListener("scroll", getPosition);
+  }, [scrollPosition]);
+
   return (
-    <header>
+    <header className={` ${scrollPosition > 50 ? "bg-white" : ""}`}>
       <nav>
         <div className='logo'>
           <Link to='/'>
@@ -24,22 +34,22 @@ function Navbar() {
         <div className='nav'>
           <ul className='lg-nav'>
             <li>
-              <Link to=''>Bus</Link>
+              <Link to='/bus'>Bus</Link>
             </li>
             <li>
-              <Link to=''>Train</Link>
+              <Link to='/train'>Train</Link>
             </li>
             <li>
-              <Link to=''>Flight</Link>
+              <Link to='/flight'>Flight</Link>
             </li>
             <li>
-              <Link to=''>Bookings</Link>
+              <Link to='/tickets'>My Tickets </Link>
             </li>
             <li>
-              <Link to=''>Contact Us</Link>
+              <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-              <Link to=''>
+              <Link to='/signin'>
                 <button>Login</button>
               </Link>
             </li>
@@ -56,22 +66,22 @@ function Navbar() {
         <div className='nav__container'>
           <ul>
             <li>
-              <Link to=''>Bus</Link>
+              <Link to='/bus'>Bus</Link>
             </li>
             <li>
-              <Link to=''>Train</Link>
+              <Link to='/train'>Train</Link>
             </li>
             <li>
-              <Link to=''>Flight</Link>
+              <Link to='/flight'>Flight</Link>
             </li>
             <li>
-              <Link to=''>Bookings</Link>
+              <Link to='/tickets'>My Tickets</Link>
             </li>
             <li>
-              <Link to=''>Contact Us</Link>
+              <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-              <Link to=''>
+              <Link to='/signin'>
                 <button>Login</button>
               </Link>
             </li>
