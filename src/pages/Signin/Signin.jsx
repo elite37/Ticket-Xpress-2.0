@@ -2,6 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Signin.css";
 import heroImage from "../../assets/images/Hero-Image.png";
+import Google from "../../assets/images/signup/google.png";
+import Facebook from "../../assets/images/signup/facebook.png";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .email("Please enter a valid email address")
+    .required("Email is required!"),
+  password: Yup.string().required("Password is required"),
+});
+
+const onSubmmit = (values) => {
+  console.log(JSON.stringify(values));
+};
 
 function Signin() {
   return (
@@ -22,16 +42,13 @@ function Signin() {
           <div className="alternative__signin">
             <div className="alt alt1">
               <button>
-                <a
-                  href="https://www.freepnglogos.com/pics/google-logo"
-                  title="Image from freepnglogos.com"
-                >
+                <Link to="https://google.com">
                   <img
-                    src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                    src={Google}
                     width="200"
                     alt="google logo png webinar optimizing for success google business webinar"
                   />
-                </a>
+                </Link>
                 Sign Up With Google
               </button>
             </div>
@@ -60,31 +77,39 @@ function Signin() {
 
           <p id="authError" className="error"></p>
 
-          <form action="" className="userformed">
-            <div className="formGroup">
-              <label for="emailaddress">Email Address</label>
-              <input id="emailField" type="email" />
-            </div>
-            <div className="formGroup">
-              <label for="lastname">Password</label>
-              <input id="passwordField" type="password" />
-            </div>
-
-            <div className="remember">
-              <div className="rememberMe">
-                <input type="checkbox" name="" id="" />
-                <label for="">Remember Me</label>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmmit}
+          >
+            <Form>
+              <div className="formGroup">
+                <label for="emailaddress">Email Address</label>
+                <Field id="emailField" name="email" type="email" />
+                <ErrorMessage name="email" component="div" />
+              </div>
+              <div className="formGroup">
+                <label for="lastname">Password</label>
+                <Field id="passwordField" name="password" type="password" />
+                <ErrorMessage name="password" component="div" />
               </div>
 
-              <div className="forgotPass">
-                <a href="/">Forgot Password?</a>
-              </div>
-            </div>
+              <div className="remember">
+                <div className="rememberMe">
+                  <input type="checkbox" name="" id="" />
+                  <label for="">Remeber Me</label>
+                </div>
 
-            <div className="signsub">
-              <input id="loginButton" type="submit" value="Login" />
-            </div>
-          </form>
+                <div className="forgotPass">
+                  <a href="/">Forgot Password?</a>
+                </div>
+              </div>
+
+              <div className="signsub">
+                <input id="loginButton" type="submit" value="Login" />
+              </div>
+            </Form>
+          </Formik>
         </div>
       </div>
     </section>

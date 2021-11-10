@@ -108,16 +108,23 @@ body {
   padding: 0 0.6rem;
 }
 
-.userformed .row {
+.row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .formGroup {
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-.userformed .formGroup label {
+div {
+  color: red;
+  font-size: 12px;
+}
+
+.formGroup label {
   display: block;
   font-style: normal;
   font-weight: normal;
@@ -125,7 +132,9 @@ body {
   color: #3b3434;
 }
 
-.userformed .formGroup input {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
   padding: 0.5rem 1rem;
   width: 100%;
   border: 1px solid #c93c32;
@@ -133,11 +142,11 @@ body {
   border-radius: 5px;
 }
 
-.userformed .row input {
-  width: 270px;
+.row input {
+  width: 250px;
 }
 
-.userformed input[type="submit"] {
+input[type="submit"] {
   padding: 0.7rem 1rem;
   width: 100%;
   background: #c93c32;
@@ -150,7 +159,7 @@ body {
   transition: 0.3s ease-in;
 }
 
-.userformed input[type="submit"]:hover {
+input[type="submit"]:hover {
   background: #8d3933;
 }
 
@@ -160,7 +169,7 @@ body {
   align-items: center;
 }
 
-.userformed input[type="checkbox"] {
+input[type="checkbox"] {
   outline: 1px solid border #eb5757 !important;
   margin-right: 5px;
 }
