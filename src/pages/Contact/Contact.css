@@ -46,10 +46,16 @@ body {
   background-repeat: no-repeat;
 }
 
-.contactform .row {
+input[type="email"],
+input[type="phonenumber"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 1px solid #c93c32;
+  outline: none;
+  border-radius: 5px;
 }
 
 .formGroup {
@@ -57,9 +63,10 @@ body {
   margin-bottom: 0.9rem;
 }
 
-.contactform .formGroup label {
+.formGroup label {
+  color: #000;
   display: block;
-  font-size: 16px;
+  font-size: 12px;
   color: #3b3434;
 }
 
@@ -82,7 +89,7 @@ body {
   font-family: poppins;
 }
 
-.contactform .formGroup input {
+input[type="fullname"] {
   padding: 0.5rem 1rem;
   width: 100%;
   border: 1px solid #c93c32;
@@ -90,30 +97,41 @@ body {
   border-radius: 5px;
 }
 
-.contactform .row input {
-  width: 270px;
-}
-
-.contactform .formGroup textarea {
+.formGroup textarea {
+  display: flex;
   padding: 0.5rem 1rem;
-  width: 400px;
-  height: 220px;
+  width: 80%;
+  height: 100px;
   border: 1px solid #c93c32;
   outline: none;
   border-radius: 5px;
 }
 
-.subBtn {
-  background: #ef4136;
+input[type="submit"] {
+  display: flex;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  font-size: 20px;
+  width: 30%;
+  background: #c93c32;
   color: #fff;
-  width: 80px;
-  height: 30px;
+  outline: none;
+  margin-top: 15px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s ease-in;
 }
-
+input[type="submit"]:hover {
+  background: #8d3933;
+}
+/* div {
+  color: red;
+  font-size: 12px;
+} */
 .contact-left h1 {
   font-size: 1.9rem;
+  color: #000;
 }
 
 .contact-left img {
@@ -122,11 +140,13 @@ body {
 }
 
 .contact-left > .phone {
+  color: #000;
   padding-top: 2rem;
   display: flex;
   gap: 20px;
 }
 .contact-left > .msg {
+  color: #000;
   padding-top: 2rem;
   display: flex;
   gap: 20px;
