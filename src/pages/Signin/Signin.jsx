@@ -54,9 +54,12 @@ function Signin() {
             </div>
             <div className="alt alt2">
               <button>
-                <Link to="https://facebook.com">
+                <Link
+                  to="https://www.freepnglogos.com/pics/facebook-logo"
+                  title="Image from freepnglogos.com"
+                >
                   <img
-                    src={Facebook}
+                    src="https://www.freepnglogos.com/uploads/facebook-logo-13.png"
                     width="200"
                     alt="logo facebook download png"
                   />
