@@ -19,26 +19,28 @@ const BusPage = lazy(() => import("./pages/BusPage"));
 const TrainPage = lazy(() => import("./pages/TrainPage"));
 const FlightPage = lazy(() => import("./pages/FlightPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const MyTripPage = lazy(() => import("./pages/MyTripPage"));
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
         {!isLogin() && <Navbar />}
         <Suspense fallback={<Spinner />}>
           <Switch>
-            <PublicRoute exact path='/' component={Home} />
-            <PublicRoute path='/about' component={About} />
-            <PublicRoute path='/bus' component={BusPage} />
-            <PublicRoute path='/flight' component={FlightPage} />
-            <PublicRoute path='/train' component={TrainPage} />
-            <PublicRoute path='/contact' component={Contact} />
-            <PublicRoute path='/tickets' component={Tickets} />
-            <PublicRoute path='/signin' restricted component={SignIn} />
-            <PublicRoute path='/signup' restricted component={SignUp} />
+            <PublicRoute exact path="/" component={Home} />
+            <PublicRoute path="/about" component={About} />
+            <PublicRoute path="/bus" component={BusPage} />
+            <PublicRoute path="/flight" component={FlightPage} />
+            <PublicRoute path="/train" component={TrainPage} />
+            <PublicRoute path="/contact" component={Contact} />
+            <PublicRoute path="/tickets" component={Tickets} />
+            <PublicRoute path="/signin" restricted component={SignIn} />
+            <PublicRoute path="/signup" restricted component={SignUp} />
+            <PublicRoute path="/trip" component={MyTripPage} />
             <PrivateRoute
-              path='/dashboard'
-              role='admin'
+              path="/dashboard"
+              role="admin"
               component={Dashboard}
             />
           </Switch>
