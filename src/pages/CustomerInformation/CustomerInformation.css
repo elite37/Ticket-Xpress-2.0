@@ -1,0 +1,12 @@
+main {
+  position: relative;
+  align-items: center;
+  padding-top: 100px;
+  height: 100vh;
+}
+
+.info {
+  display: flex;
+  border: 3px solid rgb(21, 23, 134);
+  border-radius: 12px;
+}
