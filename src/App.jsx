@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import { isLogin } from "./utils";
+// import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
 // Lazy load pages here for optimization
 const Home = lazy(() => import("./pages/Home"));
@@ -19,6 +20,7 @@ const BusPage = lazy(() => import("./pages/BusPage"));
 const TrainPage = lazy(() => import("./pages/TrainPage"));
 const FlightPage = lazy(() => import("./pages/FlightPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 const MyTripPage = lazy(() => import("./pages/MyTripPage"));
 
 function App() {
@@ -42,6 +44,11 @@ function App() {
               path="/dashboard"
               role="admin"
               component={Dashboard}
+            />
+            <PrivateRoute
+              path='/userdashboard'
+              role='user'
+              component={UserDashboard}
             />
           </Switch>
         </Suspense>

@@ -1,18 +1,13 @@
 import React from "react";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import Avatar from "@mui/material/Avatar";
 import UserAvatar from "../../assets/images/person.jpg";
-import "./DashboardNav.css";
+import "./DashNav.css";
 
-function DashboardNav() {
+const DashNav = ()  => {
   return (
     <div className='dashboardNav'>
-      <div className='nav__left'>
-        <CalendarTodayIcon className='nav__calendar' />
-        <p>September 10, 2025</p>
-      </div>
       <div className='nav__right'>
         <form method='post'>
           <div className='form__group'>
@@ -37,4 +32,4 @@ function DashboardNav() {
   );
 }
 
-export default DashboardNav;
+export default DashNav;
