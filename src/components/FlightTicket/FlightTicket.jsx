@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./FlightTicket.css";
 
-function FlightTicket() {
+function FlightTicket(props) {
   return (
     <div className='flightbooking'>
       <div className='flightbooking__container'>
@@ -74,7 +74,7 @@ function FlightTicket() {
                     name=''
                     id=''
                     placeholder='City Or Airport'
-                    onChange={(e)=>{setOrigin(e.target.value)}}
+                    onChange={(e)=>{props.setOrigin(e.target.value)}}
                   />
                 </div>
 
@@ -85,7 +85,7 @@ function FlightTicket() {
                     name=''
                     id=''
                     placeholder='City Or Airport'
-                    onChange={(e)=>{setDestination(e.target.value)}}
+                    onChange={(e)=>{props.setDestination(e.target.value)}}
                   />
                 </div>
               </div>
@@ -98,7 +98,7 @@ function FlightTicket() {
                     name=''
                     id=''
                     placeholder='City Or Airport'
-                    onChange={(e)=>{setDepDate(e.target.value)}}
+                    onChange={(e)=>{props.setDepDate(e.target.value)}}
                   />
                 </div>
 

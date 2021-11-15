@@ -18,13 +18,11 @@ function MyTrip() {
       body: " Get comprehensive Covid-19 Travel Insurance cover for 30days to protect against Covid-19 (if diagnosed) up to EUR 90 per day (Max 14) for quarantine, loss or delayed baggage up to EUR 400,lost passport up to EUR 750 and compensation for medical-related expenses up to EUR 30,000.",
       price: "N39,500",
     },
-
     {
       title: " COVID-19 Travel Insurance",
       body: " Get SMS, WhatsApp and phone calls reminding you of your flight and updates on time and dates.",
       price: "N39,500",
     },
-
     {
       title: " Flight Reminder",
       body: "Not in lagos?  You can still book your outbound Covid-19 done  with Ticket Express anywhere in Nigeria, all our partnered are NCDC approved and accredited.",
