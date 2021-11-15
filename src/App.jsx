@@ -20,11 +20,8 @@ const BusPage = lazy(() => import("./pages/BusPage"));
 const TrainPage = lazy(() => import("./pages/TrainPage"));
 const FlightPage = lazy(() => import("./pages/FlightPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-<<<<<<< HEAD
 const UserDashboard = lazy(() => import("./pages/UserDashboard"));
-=======
 const MyTripPage = lazy(() => import("./pages/MyTripPage"));
->>>>>>> 48698f2e5a43c87acc14c41f90606f6c1723ffa8
 
 function App() {
   return (
