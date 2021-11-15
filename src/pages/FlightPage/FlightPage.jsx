@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import FlightTicket from "../../components/FlightTicket";
 import Services from "../../components/Services";
 import "./FlightPage.css";
-
 function FlightPage() {
   let [depDate, setDepDate] = useState('')
   let [origin, setOrigin] = useState('')
