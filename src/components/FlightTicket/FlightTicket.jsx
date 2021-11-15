@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./FlightTicket.css";
 
@@ -74,6 +74,7 @@ function FlightTicket() {
                     name=''
                     id=''
                     placeholder='City Or Airport'
+                    onChange={(e)=>{setOrigin(e.target.value)}}
                   />
                 </div>
 
@@ -84,6 +85,7 @@ function FlightTicket() {
                     name=''
                     id=''
                     placeholder='City Or Airport'
+                    onChange={(e)=>{setDestination(e.target.value)}}
                   />
                 </div>
               </div>
@@ -96,10 +98,11 @@ function FlightTicket() {
                     name=''
                     id=''
                     placeholder='City Or Airport'
+                    onChange={(e)=>{setDepDate(e.target.value)}}
                   />
                 </div>
 
-                <div className=''>
+                {/* <div className=''>
                   <label for=''>Returning On</label>
                   <input
                     type='date'
@@ -107,7 +110,7 @@ function FlightTicket() {
                     id=''
                     placeholder='City Or Airport'
                   />
-                </div>
+                </div> */}
               </div>
             </div>
 
