@@ -18,37 +18,11 @@ main h1.text {
   border: 3px solid rgb(21, 23, 134);
   border-radius: 12px;
 }
-.Booking_Container {
-  /* width: 60%; */
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 30px;
-  gap: 45px;
-  align-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 25px;
-  /* position: relative; */
-  margin: auto;
-  list-style: none;
-}
-.Booking_Body2 h1 {
-  font-size: 1.9rem;
-}
+
 li {
   list-style: none;
 }
-.Trip_Btn {
-  background-color: rgb(255, 255, 255);
-  border: 2px solid rgb(7, 7, 143);
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.link_body {
-  color: rgb(8, 8, 116);
-  text-decoration: none;
-}
+
 footer {
   display: none;
 }
