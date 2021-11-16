@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import heroImage from "../../assets/images/Hero-Image.png";
-import Google from "../../assets/images/signup/google.png"
-import Facebook from "../../assets/images/signup/facebook.png"
+import Google from "../../assets/images/signup/google.png";
+import Facebook from "../../assets/images/signup/facebook.png";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -12,22 +12,31 @@ const initialValues = {
   lastname: "",
   email: "",
   password: "",
+  confirm_password: "",
 };
 
 const validationSchem = Yup.object({
   firstname: Yup.string().required("Input field is required"),
   lastname: Yup.string().required("input field is required"),
   email: Yup.string()
-    .email("Input valid email address")
+    .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
     .required("Password is required"),
+  confirm_password: Yup.string()
+    .required("Please confirm password")
+    .when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf(
+        [Yup.ref("password")],
+        "Password does not match"
+      ),
+    }),
 });
 
 const onSubmit = (values) => {
   console.log(JSON.stringify(values));
-  
 };
 
 function Signup() {
@@ -49,10 +58,7 @@ function Signup() {
           <div className="alternative__signin">
             <div className="alt alt1">
               <button>
-                <Link
-                  to="https://google.com"
-                  title="google"
-                >
+                <Link to="https://google.com" title="google">
                   <img
                     src={Google}
                     width="200"
@@ -64,15 +70,8 @@ function Signup() {
             </div>
             <div className="alt alt2">
               <button>
-                <Link
-                  to="https://facebook.com"
-                  title="facebook"
-                >
-                  <img
-                    src={Facebook}
-                    width="200"
-                    alt="facebook"
-                  />
+                <Link to="https://facebook.com" title="facebook">
+                  <img src={Facebook} width="200" alt="facebook" />
                 </Link>
                 Sign Up With Facebook
               </button>
@@ -134,6 +133,16 @@ function Signup() {
                   className="form-control"
                 />
                 <ErrorMessage name="password" component="password" />
+              </div>
+              <div className="formGroup">
+                <label for="confirm_password">Confirm Password</label>
+                <Field
+                  id="passwordField"
+                  type="password"
+                  name="confirm_password"
+                  className="form-control"
+                />
+                <ErrorMessage name="confirm_password" component="confirm_password"  />
               </div>
 
               <div className="condition">
