@@ -1,0 +1,24 @@
+.placeContainer {
+  width: 100%;
+}
+
+.placeContainer .placesWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.places .placeImg {
+  width: 200px;
+  height: 250px;
+}
+
+.places h5 {
+    transform: translate(18px, -30px);
+    color: #ffffff;
+}
+
+.places .placeImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
