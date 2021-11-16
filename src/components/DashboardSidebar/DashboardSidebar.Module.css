@@ -5,7 +5,7 @@
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19);
 }
 
-.logo-container {
+.logo__container {
   display: flex;
   justify-content: center;
   align-items: center;
