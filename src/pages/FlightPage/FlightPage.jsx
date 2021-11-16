@@ -3,6 +3,7 @@ import FlightTicket from "../../components/FlightTicket";
 import Services from "../../components/Services";
 import { api } from "../../utils/api";
 import "./FlightPage.css";
+
 function FlightPage() {
   let error
   let [items, setItems] = useState([])

@@ -125,10 +125,6 @@ body {
   border-radius: 5px;
 }
 
-.flightform__from div {
-  width: 228px;
-}
-
 .flightform__from div input,
 .flightform__date div input {
   border: none;

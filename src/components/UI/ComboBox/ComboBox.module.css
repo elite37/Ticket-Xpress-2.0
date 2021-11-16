@@ -7,13 +7,17 @@
   display: none;
 }
 
-.combobox-wrapper {
+.comboboxWrapper {
   display: inline-block;
   position: relative;
   font-size: 16px;
 }
 
-.combobox-label {
+.sm {
+  color: red;
+}
+
+.comboboxLabel {
   font-size: 14px;
   font-weight: bold;
   margin-right: 5px;
@@ -37,14 +41,14 @@
   margin: 0;
 }
 
-.grid .result-row {
+.grid .resultRow {
   padding: 2px;
   cursor: default;
   margin: 0;
 }
 
 .listbox .result:hover,
-.grid .result-row:hover {
+.grid .resultRow:hover {
   background: rgb(139, 189, 225);
 }
 
@@ -53,12 +57,12 @@
   background: rgb(139, 189, 225);
 }
 
-.grid .focused-cell {
+.grid .focusedCell {
   outline-style: dotted;
   outline-color: green;
 }
 
-.combobox-wrapper input {
+.comboboxWrapper input {
   font-size: inherit;
   border: 1px solid #aaa;
   border-radius: 2px;
@@ -67,7 +71,7 @@
   width: 200px;
 }
 
-.combobox-dropdown {
+.comboboxDropdown {
   position: absolute;
   right: 0;
   top: 0;
@@ -77,14 +81,14 @@
   border: 1px solid #aaa;
 }
 
-.grid .result-cell {
+.grid .resultCell {
   display: inline-block;
   cursor: default;
   margin: 0;
   padding: 0 5px;
 }
 
-.grid .result-cell:last-child {
+.grid .resultCell:lastChild {
   float: right;
   font-size: 12px;
   font-weight: 200;

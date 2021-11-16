@@ -8,6 +8,7 @@ export default function Destination(props) {
   const search = async (value) => {
     if (!(value.length >= 3)) return
     let res = await api.get(`/sabre/geo/autocomplete?q=${value}`);
+    console.log('..ag', res.items)
     setItems(res.items);
   };
 

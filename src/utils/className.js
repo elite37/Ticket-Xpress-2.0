@@ -6,14 +6,26 @@ const path = require("path");
 let basePath = args[0];
 let module_name = args[1];
 let exclude = args[2];
+let camelCase = args[3];
+
+console.log(typeof camelCase)
 
 let excludeRegEx = new RegExp(`^${exclude}`)
 
 let classNameRegEx = /(?:class|className)=['|"](.+)['|"]/g;
 let classRegEx = /(\S+)/g;
+let dashCaseRegex = /(\S)-(\S)/g;
+
+function toCamelCase(match, beforeDash, afterDash) {
+  return `${beforeDash}${afterDash.toUpperCase()}`;
+}
 
 function classReplace(match, _class) {
-  return `$\{${module_name}.${_class}}`;
+  let newClass = _class
+  if (camelCase){
+    newClass = newClass.replace(dashCaseRegex, toCamelCase)
+  }
+  return `$\{${module_name}.${newClass}}`;
 }
 
 function classNameReplace(match, classList) {
