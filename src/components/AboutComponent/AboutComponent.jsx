@@ -1,18 +1,18 @@
 import React from "react";
-import "./AboutComponent.css";
+import Styles from "./AboutComponent.module.css";
 
 function AboutComponent() {
   return (
-    <section className='About__section'>
-      <div className='About__Wrapper'>
-        <div className='About__ticket'>
-          <h3 className='About__header'>ABOUT TICKET XPRESS</h3>
-          <p className='first-paragraph'>
+    <section className={Styles.About__section}>
+      <div className={Styles.About__Wrapper}>
+        <div className={Styles.__ticket}>
+          <h3 className={Styles.About__header}>ABOUT TICKET XPRESS</h3>
+          <p className={Styles.first__paragraph}>
             Cheap Flights,Train and Affordable Bus Tickets.
           </p>
         </div>
-        <div className='About__Text'>
-          <p className='second-paragraph'>
+        <div className={Styles.About__Text}>
+          <p className={Styles.second__paragraph}>
             We are a Nigerian travel booking agency with thousands of travellers
             dedicated to rock the travel world. We want our customers to spend
             less time purchasing their travel tickets. ur mission is to save you
