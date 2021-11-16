@@ -22,9 +22,10 @@ function DashboardNav() {
               name="search-bar"
               placeholder="Search For Something"
             />
-            <button type="submit">
-              {" "}
-              <SearchIcon fontSize="small" />{" "}
+
+            <button type='submit'>
+              <SearchIcon fontSize='small' />
+
             </button>
           </div>
         </form>

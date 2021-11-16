@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.dashboardNav {
+  width: 60%;
+  height: 80px;
+  padding: 0 12px;
+}
+
+.dashboardNav h1 {
+  display: flex;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.dashboardNav h1 span {
+  margin-left: 8px;
+}
+
+
+.dashboardSide {
+  width: 20%;
+}
+
+.dashboardRight {
+  width: 20%;
+}
+
+.dashboardRight .dashboardRightWrapper {
+  padding-right: 8px;
+}
+
