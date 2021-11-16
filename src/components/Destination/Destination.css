@@ -1,0 +1,93 @@
+.destContainer {
+  width: 60%;
+  margin-left: 24px;
+}
+
+.destWrapper {
+  width: 100%;
+}
+
+.destWrapper .destHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.destHeading h2 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.destHeading .filter {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.filter h4 {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.destWrapper .dest {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.dest .destImg {
+  width: 85px;
+  height: 80px;
+  margin-right: 9px;
+}
+
+.destImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.dest .destDetails {
+  align-items: center;
+  margin-top: 12px;
+  margin-right: 60px;
+}
+
+.destDetails .destLocation h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.dest .destDetails .destState {
+  display: flex;
+  align-items: center;
+}
+
+.destDetails .destState h6 {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.dest .destFlight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.destFlight .destPrice h4 {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.destFlight .flightImg {
+  height: 50px;
+  width: 50px;
+}
+
+.flightImg img {
+  height: 100%;
+  width: 100%;
+}

@@ -5,6 +5,9 @@ import UserSideBar from "../../components/UserSideBar";
 import DashNav from "../../components/DashNav";
 import ProfileNameEdit from "../../components/ProfileNameEdit";
 import MySchedule from "../../components/MySchedule/MySchedule";
+import PlacesAds from "../../components/PlacesAds/PlacesAds";
+import Destination from "../../components/Destination/Destination";
+import PlanTrip from "../../components/PlanTrip/PlanTrip";
 
 const UserDashboard = () => {
   const [userName, setUserName] = useState("Abayomi");
@@ -12,7 +15,7 @@ const UserDashboard = () => {
   return (
     <>
       <div className="container">
-        <div className="dashboardSide">
+        <div className="dashboardLeft">
           <UserSideBar
             userDashboard="Dashboard"
             tickets="My Tickets"
@@ -21,11 +24,20 @@ const UserDashboard = () => {
             settings="Settings"
           />
         </div>
-        <div className="dashboardNav">
-          <h1>
-            Welcome <span>{userName}</span>
-          </h1>
-          <DashNav />
+        <div className="dashboardCenter">
+          <div className="navWrapper">
+            <h1>
+              Welcome <span>{userName}</span>
+            </h1>
+            <DashNav />
+          </div>
+          <div className="userDasboardContent">
+            <PlacesAds />
+          </div>
+          <div className="destinationWrapper">
+            <Destination />
+            <PlanTrip />
+          </div>
         </div>
         <div className="dashboardRight">
           <div className="dashboardRightWrapper">
