@@ -61,7 +61,7 @@ function Contact() {
         >
           <Form>
             <div className="formGroup">
-              <label for="name">Full Name</label>
+              <label htmlFor="name">Full Name</label>
               <Field
                 id="name"
                 type="fullname"
@@ -75,7 +75,7 @@ function Contact() {
             </div>
             <div className="row">
               <div className="formGroup">
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <Field
                   id="email"
                   type="email"
@@ -88,7 +88,7 @@ function Contact() {
                 <ErrorMessage name="email" component="div" />
               </div>
               <div className="formGroup">
-                <label for="phonenumber">Phone Number</label>
+                <label htmlFor="phonenumber">Phone Number</label>
                 <Field
                   id="phone"
                   type="phonenumber"
@@ -102,7 +102,7 @@ function Contact() {
             </div>
 
             <div className="formGroup">
-              <label for="text">Message</label>
+              <label htmlFor="text">Message</label>
               <textarea id="message" placeholder="Message Here" type="text">
                 {" "}
               </textarea>
@@ -113,7 +113,7 @@ function Contact() {
             </div>
           </Form>
         </Formik>
-        <div className="hidden thank-you">Thank you for your feedback</div>
+        <div className="hidden thank-you">Thank you htmlFor your feedback</div>
       </div>
     </section>
   );

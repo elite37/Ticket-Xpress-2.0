@@ -15,7 +15,7 @@ function MyTrip() {
     },
     {
       title: "Outbound COVID-19 Test Booking(Lagos Only)",
-      body: " Get comprehensive Covid-19 Travel Insurance cover for 30days to protect against Covid-19 (if diagnosed) up to EUR 90 per day (Max 14) for quarantine, loss or delayed baggage up to EUR 400,lost passport up to EUR 750 and compensation for medical-related expenses up to EUR 30,000.",
+      body: " Get comprehensive Covid-19 Travel Insurance cover htmlFor 30days to protect against Covid-19 (if diagnosed) up to EUR 90 per day (Max 14) htmlFor quarantine, loss or delayed baggage up to EUR 400,lost passport up to EUR 750 and compensation htmlFor medical-related expenses up to EUR 30,000.",
       price: "N39,500",
     },
     {
@@ -31,7 +31,7 @@ function MyTrip() {
 
     {
       title: " Airport lounge",
-      body: "Regardless of whether you are traveling for business or leisure,get lounge access to make the most of your airport experience.",
+      body: "Regardless of whether you are traveling htmlFor business or leisure,get lounge access to make the most of your airport experience.",
       price: "N39,500",
     },
 
@@ -67,7 +67,7 @@ function MyTrip() {
 
     {
       title: "Ticket Express Priority Package",
-      body: "With this service, an agent will assist by processing your requests to the airline for wheelchair assistance and extra luggage in question.",
+      body: "With this service, an agent will assist by processing your requests to the airline htmlFor wheelchair assistance and extra luggage in question.",
       price: "N39,500",
     },
 
@@ -79,7 +79,7 @@ function MyTrip() {
 
     {
       title: "Round-trip COVID-19 Test Booking",
-      body: "Enjoy a discounted price by booking for a round trip covid test service. All our partnered labs used are NCDC approved and accredited. Stay safe,Ticket Express cares.",
+      body: "Enjoy a discounted price by booking htmlFor a round trip covid test service. All our partnered labs used are NCDC approved and accredited. Stay safe,Ticket Express cares.",
       price: "N39,500",
     },
   ];

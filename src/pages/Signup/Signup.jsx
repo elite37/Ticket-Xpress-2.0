@@ -56,7 +56,7 @@ function Signup() {
                   <img
                     src={Google}
                     width="200"
-                    alt="google logo png webinar optimizing for success google business webinar"
+                    alt="google logo png webinar optimizing htmlFor success google business webinar"
                   />
                 </Link>
                 Sign Up With Google
@@ -95,7 +95,7 @@ function Signup() {
             <Form>
               <div className="row">
                 <div className="formGroup">
-                  <label for="firstname">First Name</label>
+                  <label htmlFor="firstname">First Name</label>
                   <Field
                     id="firstNameField"
                     type="text"
@@ -105,7 +105,7 @@ function Signup() {
                   <ErrorMessage name="firstname" component="div" />
                 </div>
                 <div className="formGroup">
-                  <label for="lastname">Last Name</label>
+                  <label htmlFor="lastname">Last Name</label>
                   <Field
                     id="lastNameField"
                     type="text"
@@ -116,7 +116,7 @@ function Signup() {
                 </div>
               </div>
               <div className="formGroup">
-                <label for="emailaddress">Email Address</label>
+                <label htmlFor="emailaddress">Email Address</label>
                 <Field
                   id="emailField"
                   type="email"
@@ -126,7 +126,7 @@ function Signup() {
                 <ErrorMessage name="email" component="div" />
               </div>
               <div className="formGroup">
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <Field
                   id="passwordField"
                   type="password"
@@ -138,7 +138,7 @@ function Signup() {
 
               <div className="condition">
                 <input type="checkbox" name="" id="" />
-                <label for="condition">
+                <label htmlFor="condition">
                   I agree to the platform's
                   <a href="/">Terms Of Services</a>
                   and

@@ -8,7 +8,7 @@ import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import { isLogin } from "./utils";
 
-// Lazy load pages here for optimization
+// Lazy load pages here htmlFor optimization
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Tickets = lazy(() => import("./pages/MyTicketsPage"));

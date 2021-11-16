@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./FlightTicket.css";
+import Location from "./Location";
 
 function FlightTicket(props) {
+
   return (
     <div className='flightbooking'>
       <div className='flightbooking__container'>
@@ -68,31 +70,27 @@ function FlightTicket(props) {
             <div className='flightform__conn'>
               <div className='flightform__from'>
                 <div className=''>
-                  <label for=''>From where ?</label>
-                  <input
+                  <label htmlFor=''>From where ?</label>
+                  <Location
                     type='text'
-                    name=''
-                    id=''
-                    placeholder='City Or Airport'
-                    onChange={(e)=>{props.setOrigin(e.target.value)}}
+                    placeholder='City'
+                    onChange={props.setOrigin}
                   />
                 </div>
 
                 <div className=''>
-                  <label for=''>To where ?</label>
-                  <input
+                  <label htmlFor=''>To where ?</label>
+                  <Location
                     type='text'
-                    name=''
-                    id=''
-                    placeholder='City Or Airport'
-                    onChange={(e)=>{props.setDestination(e.target.value)}}
+                    placeholder='City'
+                    onChange={props.setDestination}
                   />
                 </div>
               </div>
 
               <div className='flightform__date'>
                 <div className=''>
-                  <label for=''>Leaving On</label>
+                  <label htmlFor=''>Leaving On</label>
                   <input
                     type='date'
                     name=''
@@ -103,7 +101,7 @@ function FlightTicket(props) {
                 </div>
 
                 {/* <div className=''>
-                  <label for=''>Returning On</label>
+                  <label htmlFor=''>Returning On</label>
                   <input
                     type='date'
                     name=''

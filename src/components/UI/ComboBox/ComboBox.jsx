@@ -1,35 +1,35 @@
+import React from "react";
+import styles from './ComboBox.module.css'
+
 export default function ComboBox(props) {
   return (
     <>
-      <label id="ex2-label" class="combobox-label">
+      <label id="ex2-label" className="combobox-label">
         {props.label}
       </label>
 
-      <div class="combobox-wrapper">
-        <div
-        //   role="combobox"
-        //   aria-expanded="false"
-        //   aria-owns="ex2-listbox"
-        //   aria-haspopup="listbox"
-          id="ex2-combobox"
-        >
+      <div className="combobox-wrapper">
+        <div id="ex2-combobox">
           <input
+            placeholder={props.placeholder}
+            onChange={(e) => {
+              props.getItems(e.target.value);
+            }}
             type="text"
-            // aria-autocomplete="list"
-            // aria-controls="ex2-listbox"
-            // aria-labelledby="ex2-label"
             id="ex2-input"
           />
         </div>
-        <ul
-        //   aria-labelledby="ex2-label"
-        //   role="listbox"
-          id="ex2-listbox"
-          class="listbox hidden"
-        >
-            {props.items.map((item) => (
-                <li>{item.text}</li>
-            ))}
+        <ul id="ex2-listbox" className="listbox hidden">
+          {props.items.map((item) => (
+            <li
+              key={item.id}
+              onClick={() => {
+                props.onSelect(item.id);
+              }}
+            >
+              {item.text}
+            </li>
+          ))}
         </ul>
       </div>
     </>

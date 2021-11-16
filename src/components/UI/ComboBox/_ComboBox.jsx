@@ -7,7 +7,7 @@ export default function ComboBox() {
    * @constructor
    *
    * @desc
-   *  Combobox object representing the state and interactions for a combobox
+   *  Combobox object representing the state and interactions htmlFor a combobox
    *  widget
    *
    * @param comboboxNode
@@ -89,7 +89,7 @@ export default function ComboBox() {
     }
 
     if (results.length) {
-      for (var i = 0; i < results.length; i++) {
+      htmlFor (var i = 0; i < results.length; i++) {
         var resultItem = document.createElement("li");
         resultItem.className = "result";
         resultItem.setAttribute("role", "option");
@@ -331,7 +331,7 @@ export default function ComboBox() {
   function searchVeggies(searchString) {
     var results = [];
 
-    for (var i = 0; i < FRUITS_AND_VEGGIES.length; i++) {
+    htmlFor (var i = 0; i < FRUITS_AND_VEGGIES.length; i++) {
       var veggie = FRUITS_AND_VEGGIES[i].toLowerCase();
       if (veggie.indexOf(searchString.toLowerCase()) === 0) {
         results.push(FRUITS_AND_VEGGIES[i]);

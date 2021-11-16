@@ -66,7 +66,7 @@ function BusTicket() {
             <div className='flightform__conn'>
               <div className='flightform__from'>
                 <div className=''>
-                  <label for=''>From where ?</label>
+                  <label htmlFor=''>From where ?</label>
                   <input
                     type='text'
                     name=''
@@ -76,7 +76,7 @@ function BusTicket() {
                 </div>
 
                 <div className=''>
-                  <label for=''>To where ?</label>
+                  <label htmlFor=''>To where ?</label>
                   <input
                     type='text'
                     name=''
@@ -88,7 +88,7 @@ function BusTicket() {
 
               <div className='flightform__date'>
                 <div className=''>
-                  <label for=''>Leaving On</label>
+                  <label htmlFor=''>Leaving On</label>
                   <input
                     type='date'
                     name=''
@@ -98,7 +98,7 @@ function BusTicket() {
                 </div>
 
                 <div className=''>
-                  <label for=''>Returning On</label>
+                  <label htmlFor=''>Returning On</label>
                   <input
                     type='date'
                     name=''

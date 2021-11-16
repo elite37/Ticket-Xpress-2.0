@@ -46,7 +46,7 @@ function Signin() {
                   <img
                     src={Google}
                     width="200"
-                    alt="google logo png webinar optimizing for success google business webinar"
+                    alt="google logo png webinar optimizing htmlFor success google business webinar"
                   />
                 </Link>
                 Sign Up With Google
@@ -84,12 +84,12 @@ function Signin() {
           >
             <Form>
               <div className="formGroup">
-                <label for="emailaddress">Email Address</label>
+                <label htmlFor="emailaddress">Email Address</label>
                 <Field id="emailField" name="email" type="email" />
                 <ErrorMessage name="email" component="div" />
               </div>
               <div className="formGroup">
-                <label for="lastname">Password</label>
+                <label htmlFor="lastname">Password</label>
                 <Field id="passwordField" name="password" type="password" />
                 <ErrorMessage name="password" component="div" />
               </div>
@@ -97,7 +97,7 @@ function Signin() {
               <div className="remember">
                 <div className="rememberMe">
                   <input type="checkbox" name="" id="" />
-                  <label for="">Remeber Me</label>
+                  <label htmlFor="">Remeber Me</label>
                 </div>
 
                 <div className="forgotPass">
