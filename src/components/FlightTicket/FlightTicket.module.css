@@ -79,21 +79,29 @@ body {
   margin-bottom: 20px;
 }
 
-.filghttype {
+.optionCheckbox {
+  margin-right: .1rem;
+}
+
+.flighttype {
   padding: 0.5rem 1rem;
   margin-right: 50px !important;
   background: #e0cca6;
   border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
 }
 
-.filghttype a {
+.c a {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
 }
 
-.filghttype a > div {
+.flighttype a > div {
   margin-left: 10px;
 }
 
@@ -114,7 +122,7 @@ body {
   align-items: center;
 }
 
-.flightform__from div,
+/* .flightform__from div, */
 .flightform__date div {
   display: flex;
   flex-direction: column;
@@ -125,7 +133,7 @@ body {
   border-radius: 5px;
 }
 
-.flightform__from div input,
+/* .flightform__from div input, */
 .flightform__date div input {
   border: none;
   outline: none;
@@ -136,7 +144,7 @@ body {
   color: #223344;
 }
 
-.flightform__from div label,
+/* .flightform__from div label, */
 .flightform__date div label {
   color: #6d8494;
   font-size: 12px;
@@ -172,7 +180,7 @@ body {
   .flightbooking__container {
     width: 100%;
   }
-  .filghttype {
+  .flighttype {
     width: 100%;
     margin: 7px auto;
   }

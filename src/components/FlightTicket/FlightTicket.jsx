@@ -1,74 +1,79 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import "./FlightTicket.css";
+import Date from "./Date";
+import styles from "./FlightTicket.module.css";
 import Location from "./Location";
 
 function FlightTicket(props) {
-
   return (
-    <div className='flightbooking'>
-      <div className='flightbooking__container'>
-        <div className='flightbooking__top'>
-          <div className='flight__option active'>
+    <div className={`${styles.flightbooking}`}>
+      <div className={`${styles.flightbooking__container}`}>
+        <div className={`${styles.flightbooking__top}`}>
+          <div className={`${styles.flight__option} ${styles.active}`}>
             <Link to='/flight'>
               {" "}
               <span>Book Flight</span>
               <div className=''>
-                <i className='fas fa-plane'></i>
+                <i className={`${styles.fas} ${styles.faPlane}`}></i>
               </div>
             </Link>
           </div>
-          <div className='flight__option'>
+          <div className={`${styles.flight__option}`}>
             <Link to='/bus'>
               {" "}
               <span>Book Bus</span>
               <div className=''>
                 {" "}
-                <i className='fas fa-bus'></i>
+                <i className={`${styles.fas} ${styles.faBus}`}></i>
               </div>
             </Link>
           </div>
-          <div className='flight__option'>
+          <div className={`${styles.flight__option}`}>
             <Link to='/train'>
               {" "}
               <span>Book Train</span>
               <div className=''>
-                <i className='fas fa-train'></i>
+                <i className={`${styles.fas} ${styles.faTrain}`}></i>
               </div>
             </Link>
           </div>
         </div>
-        <div className='flightbooking__bottom'>
-          <div className='flighttypes'>
-            <div className='filghttype'>
+
+        <div className={`${styles.flightbooking__bottom}`}>
+          <div className={`${styles.flighttypes}`}>
+            <div className={`${styles.flighttype}`}>
+            <input
+              className={`${styles.optionCheckbox}`}
+              onChange={(e)=>props.setRoundTrip(e.target.checked)}
+              type='checkbox'
+            />
+              Round Trip
+            </div>
+            <div className={`${styles.flighttype}`}>
               <a href='/'>
-                Round Trip
+                <input
+                  onChange={(e)=>{
+                    props.setAdults(e.target.value)
+                  }}
+                />
+                Adults
                 <div className=''>
-                  <i className='fas fa-sort-down'></i>
+                  <i className={`${styles.fas} ${styles.faSortDown}`}></i>
                 </div>
               </a>
             </div>
-            <div className='filghttype'>
-              <a href='/'>
-                1 Passenger
-                <div className=''>
-                  <i className='fas fa-sort-down'></i>
-                </div>
-              </a>
-            </div>
-            <div className='filghttype'>
+            <div className={`${styles.flighttype}`}>
               <a href='/'>
                 Economy
                 <div className=''>
-                  <i className='fas fa-sort-down'></i>
+                  <i className={`${styles.fas} ${styles.faSortDown}`}></i>
                 </div>
               </a>
             </div>
           </div>
 
-          <form action='' className='flightform'>
-            <div className='flightform__conn'>
-              <div className='flightform__from'>
+          <form action='' className={`${styles.flightform}`}>
+            <div className={`${styles.flightform__conn}`}>
+              <div className={`${styles.flightform__from}`}>
                 <div className=''>
                   <label htmlFor=''>From where ?</label>
                   <Location
@@ -88,32 +93,21 @@ function FlightTicket(props) {
                 </div>
               </div>
 
-              <div className='flightform__date'>
-                <div className=''>
-                  <label htmlFor=''>Leaving On</label>
-                  <input
-                    type='date'
-                    name=''
-                    id=''
-                    placeholder='City Or Airport'
-                    onChange={(e)=>{props.setDepDate(e.target.value)}}
-                  />
-                </div>
+              <Date
+                label='Leaving on'
+                onChange={props.setDepDate}
+              />
 
-                {/* <div className=''>
-                  <label htmlFor=''>Returning On</label>
-                  <input
-                    type='date'
-                    name=''
-                    id=''
-                    placeholder='City Or Airport'
-                  />
-                </div> */}
-              </div>
+              {props.roundTrip && 
+                <Date
+                  label='Returning on'
+                  onChange={props.setRetDate}
+                />
+              }
             </div>
 
-            <div className='submitdiv'>
-              <input type='submit' value="Let's Go" className='flightsubmit' />
+            <div className={`${styles.submitdiv}`}>
+              <input type='submit' value="Let's Go" className={`${styles.flightsubmit}`} />
             </div>
           </form>
         </div>

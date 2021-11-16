@@ -6,27 +6,42 @@ import "./FlightPage.css";
 
 function FlightPage() {
   let error
+  // roundTrip option
+  let [roundTrip, setRoundTrip] = useState(false)
+
   let [items, setItems] = useState([])
+  let [adults, setAdults] = useState([])
+  // departure date
   let [depDate, setDepDate] = useState('')
+  // return date
+  let [retDate, setRetDate] = useState('')
+
   let [origin, setOrigin] = useState('')
   let [destination, setDestination] = useState('')
-
-  // console.log(items)
 
   const getFlights = async() => {
     console.log('getting')
     console.log(origin)
     console.log(destination)
     let _depDate = new Date(depDate).toISOString().slice(0, -5)
+    let inbound
     let outbound = {
       date: _depDate,
       destination,
       origin
     }
-    let passengers = {
-        'ADT': 1
+    if (roundTrip) {
+      let _retDate = new Date(retDate).toISOString().slice(0, -5)
+      inbound = {
+        date: _retDate,
+        detination: origin,
+        origin: destination
+      }
     }
-    let arg = JSON.stringify({ outbound, passengers })
+    let passengers = {
+        'ADT': adults
+    }
+    let arg = JSON.stringify({ outbound, inbound, passengers })
     let res = await api.get(`flights?req=${arg}`)
     if (res.error) {
       error = true
@@ -78,8 +93,12 @@ function FlightPage() {
   return (
     <div>
       <FlightTicket
+        roundTrip={roundTrip}
+        setRoundTrip={setRoundTrip}
+        setRetDate={setRetDate}
         setDepDate={setDepDate}
         setOrigin={setOrigin}
+        setAdults={setAdults}
         setDestination={setDestination}
       />
       {

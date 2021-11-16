@@ -4,7 +4,7 @@ let local = 'http://127.0.0.1:5000'
 
 export let base = local
 
-export function send({ method, path, data, auth }) {
+export function send({ method, path, data, auth, fallback }) {
 	const opts = { method, headers: {} }
 
 	if (auth) {
@@ -39,10 +39,10 @@ export function send({ method, path, data, auth }) {
 				return res.text
 			}
 		}).catch((err)=>{
-			return
+			return fallback || {}
 		})
 	} catch {
-		return {}
+		return fallback || {}
 	}
 }
 

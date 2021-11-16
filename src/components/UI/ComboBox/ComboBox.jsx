@@ -21,12 +21,12 @@ export default function ComboBox(props) {
             ref={textInput}
             placeholder={props.placeholder}
             onBlur={()=>{
-              listbox.classList.add(styles.hidden)
+              if(listbox) listbox.classList.add(styles.hidden)
             }}
             onInput={(e) => {
               if (e.target.value.length >= 3) {
                 props.getItems(e.target.value)
-                listbox.classList.remove(styles.hidden)
+                if (listbox) listbox.classList.remove(styles.hidden)
               }
             }}
             type="text"
@@ -37,7 +37,7 @@ export default function ComboBox(props) {
           id="ex2-listbox"
           ref={listboxRef}
           className={`${styles.listbox}`}>
-          {props.items.map((item) => (
+          {props.items && props.items.map((item) => (
             <li
               className={`${styles.result}`}
               key={item.id}

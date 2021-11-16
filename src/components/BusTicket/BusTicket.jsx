@@ -35,7 +35,7 @@ function BusTicket() {
 
         <div className='flightbooking__bottom'>
           <div className='flighttypes'>
-            <div className='filghttype'>
+            <div className='flighttype'>
               <Link href='/'>
                 Round Trip
                 <div className=''>
@@ -43,7 +43,7 @@ function BusTicket() {
                 </div>
               </Link>
             </div>
-            <div className='filghttype'>
+            <div className='flighttype'>
               <a href='/'>
                 1 Passenger
                 <div className=''>
@@ -52,7 +52,7 @@ function BusTicket() {
               </a>
             </div>
 
-            <div className='filghttype'>
+            <div className='flighttype'>
               <a href='/'>
                 Economy
                 <div className=''>

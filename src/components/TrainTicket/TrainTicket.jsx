@@ -34,7 +34,7 @@ function TrainTicket() {
 
         <div className='flightbooking__bottom'>
           <div className='flighttypes'>
-            <div className='filghttype'>
+            <div className='flighttype'>
               <a href='/'>
                 Round Trip
                 <div className=''>
@@ -42,7 +42,7 @@ function TrainTicket() {
                 </div>
               </a>
             </div>
-            <div className='filghttype'>
+            <div className='flighttype'>
               <a href='/'>
                 1 Passenger
                 <div className=''>
@@ -51,7 +51,7 @@ function TrainTicket() {
               </a>
             </div>
 
-            <div className='filghttype'>
+            <div className='flighttype'>
               <a href='/'>
                 Economy
                 <div className=''>
