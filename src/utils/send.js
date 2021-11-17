@@ -1,8 +1,7 @@
 let local = 'http://127.0.0.1:5000'
-// let live = 'elite-api.onrender.com'
-// let live = import.meta.env.VITE_API
+let live = 'elite-api.onrender.com'
 
-export let base = local
+export let base = live
 
 export function send({ method, path, data, auth, fallback }) {
 	const opts = { method, headers: {} }
