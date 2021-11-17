@@ -127,7 +127,7 @@ export default function FlightTicket(
             <Passengers />
           </div>
 
-          <form
+          <div
             action=""
             className={`${styles.flightform}`}
           >
@@ -168,17 +168,7 @@ export default function FlightTicket(
                 />
               )}
             </div>
-
-            <div
-              className={`${styles.submitdiv}`}
-            >
-              <input
-                type="submit"
-                value="Let's Go"
-                className={`${styles.flightsubmit}`}
-              />
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

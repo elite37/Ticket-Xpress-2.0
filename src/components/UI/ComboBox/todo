@@ -1,0 +1,3 @@
+select and hide on 'esc'
+select on 'up' || 'down'
+select and hide on 'enter'
