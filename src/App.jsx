@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 import { isLogin } from "./utils";
+// import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
 // Lazy load pages here htmlFor optimization
 const Home = lazy(() => import("./pages/Home"));
@@ -19,34 +20,40 @@ const BusPage = lazy(() => import("./pages/BusPage"));
 const TrainPage = lazy(() => import("./pages/TrainPage"));
 const FlightPage = lazy(() => import("./pages/FlightPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 const MyTripPage = lazy(() => import("./pages/MyTripPage"));
 
 function App() {
   return (
     <div className="App">
-        <Router>
-          {!isLogin() && <Navbar />}
-          <Suspense fallback={<Spinner />}>
-            <Switch>
-              <PublicRoute exact path="/" component={Home} />
-              <PublicRoute path="/about" component={About} />
-              <PublicRoute path="/bus" component={BusPage} />
-              <PublicRoute path="/flight" component={FlightPage} />
-              <PublicRoute path="/train" component={TrainPage} />
-              <PublicRoute path="/contact" component={Contact} />
-              <PublicRoute path="/tickets" component={Tickets} />
-              <PublicRoute path="/signin" restricted component={SignIn} />
-              <PublicRoute path="/signup" restricted component={SignUp} />
-              <PublicRoute path="/trip" component={MyTripPage} />
-              <PrivateRoute
-                path="/dashboard"
-                role="admin"
-                component={Dashboard}
-              />
-            </Switch>
-          </Suspense>
-          {!isLogin() && <Footer />}
-        </Router>
+      <Router>
+        {!isLogin() && <Navbar />}
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <PublicRoute exact path="/" component={Home} />
+            <PublicRoute path="/about" component={About} />
+            <PublicRoute path="/bus" component={BusPage} />
+            <PublicRoute path="/flight" component={FlightPage} />
+            <PublicRoute path="/train" component={TrainPage} />
+            <PublicRoute path="/contact" component={Contact} />
+            <PublicRoute path="/tickets" component={Tickets} />
+            <PublicRoute path="/signin" restricted component={SignIn} />
+            <PublicRoute path="/signup" restricted component={SignUp} />
+            <PublicRoute path="/trip" component={MyTripPage} />
+            <PrivateRoute
+              path="/dashboard"
+              role="admin"
+              component={Dashboard}
+            />
+            <PrivateRoute
+              path='/userdashboard'
+              role='user'
+              component={UserDashboard}
+            />
+          </Switch>
+        </Suspense>
+        {!isLogin() && <Footer />}
+      </Router>
     </div>
   );
 }

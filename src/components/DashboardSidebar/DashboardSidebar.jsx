@@ -1,34 +1,35 @@
 import React from "react";
 import TicketExpressLogo from "../../assets/images/logo.png";
 import TabLink from "../TabLink/TabLink";
-import "./DashboardSidebar.css";
+// import "./DashboardSidebar.css";
 import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Styles from "./DashboardSidebar.Module.css";
 
 function DashboardSidebar() {
   return (
-    <div className='sidebar'>
-      <div className='logo-container'>
-        <img src={TicketExpressLogo} alt='Ticket Express' />
+    <div className={Styles.sidebar}>
+      <div className={Styles.logo__container}>
+        <img src={TicketExpressLogo} alt="Ticket Express" />
       </div>
-      <ul className='dashboard__tab'>
-        <TabLink name='Overview' active Icon={HomeIcon} route='/dashboard' />
+      <ul className={Styles.dashboard__tab}>
+        <TabLink name="Overview" active Icon={HomeIcon} route="/dashboard" />
         <TabLink
-          name='Add Booking'
+          name="Add Booking"
           Icon={AddCircleOutlineIcon}
-          route='/dashboard/addbooking'
+          route="/dashboard/addbooking"
         />
         <TabLink
-          name='Settings'
+          name="Settings"
           Icon={SettingsIcon}
-          route='/dashboard/settings'
+          route="/dashboard/settings"
         />
       </ul>
 
-      <ul className='logout'>
-        <TabLink name='Logout' Icon={LogoutIcon} />
+      <ul className={Styles.logout}>
+        <TabLink name="Logout" Icon={LogoutIcon} />
       </ul>
     </div>
   );
