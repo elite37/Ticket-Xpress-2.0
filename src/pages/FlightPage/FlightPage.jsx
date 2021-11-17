@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import Flight from "../../components/Flight";
 import FlightTicket from "../../components/FlightTicket";
 import Services from "../../components/Services";
 import { api } from "../../utils/api";
 import "./FlightPage.css";
 
-export default function FlightPage() {
+export default function _() {
   let [items, setItems] = useState([]);
 
   const flightState = useSelector((state) => state.flight);
@@ -79,25 +80,17 @@ export default function FlightPage() {
       setItems(_itns);
     }
 
-    // get();
-  }, [flightState.depDate, flightState.origin, flightState.destination]);
+    get();
+  }, [flightState]);
 
   return (
     <div>
       <FlightTicket />
       {items.map((item) => (
-        <div key={item.id}>
-          <p>departure airport: {item.depPort}</p>
-          <p>departure date: {item.depDate}</p>
-          <br />
-          <p>arrival airport: {item.arrPort}</p>
-          <p>arrival date: {item.arrDate}</p>
-          <p>
-            price: {item.fare} {item.curr}
-          </p>
-          <p>.</p>
-          <p>.</p>
-        </div>
+        <Flight
+          key={item.id}
+          itn={item}
+        />
       ))}
       <Services />
     </div>

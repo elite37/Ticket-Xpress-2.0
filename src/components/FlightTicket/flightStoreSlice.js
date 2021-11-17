@@ -30,16 +30,16 @@ export const flightSlice = createSlice({
       state.roundTrip = !state.roundTrip;
     },
     depDate: (state, action) => {
-      state.depDate = action.value;
+      state.depDate = action.payload;
     },
     retDate: (state, action) => {
-      state.retDate = action.value;
+      state.retDate = action.payload;
     },
     origin: (state, action) => {
-      state.origin = action.value;
+      state.origin = action.payload;
     },
     destination: (state, action) => {
-      state.destination = action.value;
+      state.destination = action.payload;
     },
   },
 });

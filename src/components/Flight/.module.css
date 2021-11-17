@@ -1,4 +1,10 @@
-.main {
+.itn {
     display: flex;
-    gap: 1rem
+    flex-direction: column;
+    column-gap: 1rem;
+}
+
+.leg {
+    display: flex;
+    gap: 1rem;
 }
