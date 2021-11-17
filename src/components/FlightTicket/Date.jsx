@@ -1,4 +1,4 @@
-import styles from './FlightTicket.module.css'
+import styles from './.module.css'
 
 export default function Date(props) {
   return (

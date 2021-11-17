@@ -3,6 +3,7 @@ import flightClasses from "./flightClasses.json";
 import { useSelector, useDispatch } from "react-redux";
 import { flightClassesOpen } from "../flightStoreSlice";
 import CaretLabel from "../../UI/CaretLabel";
+import styles from "./.module.css";
 
 export default function FlightClasses() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function FlightClasses() {
         label={() => <legend>Flight Class</legend>}
       />
       {flightState.flightClassesOpen && (
-        <div>
+        <div className={`${styles.all}`}>
           {flightClasses.map((flightClass) => (
             <FlightClass
               key={flightClass.code}
