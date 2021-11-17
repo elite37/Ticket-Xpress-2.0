@@ -31,7 +31,7 @@ main {
 }
 
 .flight_itinerary {
-  font-family: "poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .flight_itinerary_header {
@@ -81,7 +81,7 @@ hr {
   text-align: center;
   font-size: 25px;
   font-weight: 500;
-  font-family: "poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .flight_itinerary_info {
@@ -91,7 +91,7 @@ hr {
   column-gap: 10px;
   padding: 5px;
   margin: 5px;
-   font-family: "poppins", sans-serif;
+   font-family: "Poppins", sans-serif;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -110,7 +110,7 @@ hr {
   justify-content: space-evenly;
   background: skyblue;
   margin: 5px;
-  font-family: "poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .blue_notice > p {
@@ -121,7 +121,7 @@ hr {
 .form_group {
   margin: 5px;
   padding: 5px;
-  font-family: "poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .form_group_header {
@@ -132,10 +132,66 @@ hr {
 
 .form_group_body {
   display: flex;
-  align-items: center;
 }
 
 .form_group_body_input {
-  display: flex;
   flex-direction: column;
+  margin: 10px;
+  margin-left: 20px;
+}
+
+.form_group_body_input > label {
+  display: block;
+  font-size: 16px;
+}
+
+.form_group_body_input >label > span {
+  color:red;
+}
+
+.text {
+  width: 250px;
+  height: 30px;
+  margin-right: 10px;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.dropdown {
+  height: 30px;
+  width: 100px;
+  margin-right: 10px;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+input[type="checkbox"] {
+  outline: none;
+  margin: 5px;
+  border: 1px solid #000 ;
+}
+
+::placeholder {
+  padding: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.form_checkbox {
+  font-size: 10px;
+  margin: 10px;
+}
+
+.wide{
+  margin: 15px 30px;
+  padding: 5px 15px;
+}
+
+.blue_header > p {
+  color: skyblue;
+}
+
+.blue_header > a {
+  color: #000 !important;
 }
