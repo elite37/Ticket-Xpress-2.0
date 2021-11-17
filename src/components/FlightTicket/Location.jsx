@@ -16,6 +16,7 @@ export default function Destination(props) {
 
   return (
     <ComboBox
+      loop
       autoSelect
       placeholder={props.placeholder}
       onSelect={props.onSelect}

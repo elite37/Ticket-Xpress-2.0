@@ -57,6 +57,9 @@
 }
 
 .combobox {
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
 }

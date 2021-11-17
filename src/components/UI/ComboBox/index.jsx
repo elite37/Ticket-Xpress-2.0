@@ -10,7 +10,6 @@ export default function ComboBox(
   const [hidden, setHidden] =
     useState(true);
   const listboxRef = useRef(null);
-  const listbox = listboxRef.current;
 
   const textInputRef = useRef(null);
   const textInput =
@@ -20,14 +19,23 @@ export default function ComboBox(
   const [current, setCurrent] =
     useState({});
 
-  const select = (item) => {
-    hide();
+  const select = (
+    item,
+    _hide = false
+  ) => {
+    if (!item) return;
+    if (_hide) hide();
     setCurrent(item);
+    if (textInput) {
+      textInput.value = item.text;
+    }
     props.onSelect(item.id);
   };
 
   const onTextInput = (e) => {
     if (e.target.value.length >= 3) {
+      if (props.autoSelect)
+        select(props.items[0]);
       props.getItems(e.target.value);
       show();
     }
@@ -41,18 +49,62 @@ export default function ComboBox(
     setHidden(true);
   };
 
+  // index
+  // check index
+  // increase index
+  // get index from props.items
+  // select index
+  const selectNext = async (
+    direction
+  ) => {
+    // let item = props.items.find(i => i.id === current.id)
+    let index =
+      props.items.indexOf(current);
+    index = direction
+      ? index - 1
+      : index + 1;
+    if (direction && index === 0) {
+      if (props.loop) {
+        index = props.items.length;
+      } else {
+        return;
+      }
+    } else if (
+      !direction &&
+      index === props.items.length
+    ) {
+      if (props.loop) {
+        index = 0;
+      } else {
+        return;
+      }
+    }
+    let next = props.items[index];
+    select(next);
+  };
+
   const inputKeyDown = (e) => {
     switch (e.code) {
       case "Escape":
         hide();
         break;
       case "ArrowUp":
-        selectAbove();
+        (async () => {
+          e.preventDefault();
+          await selectNext(true);
+        })();
         break;
       case "ArrowDown":
-        selectBelow();
+        (async () => {
+          e.preventDefault();
+          await selectNext();
+        })();
+        break;
+      case "Enter":
+        hide();
         break;
       default:
+      //
     }
   };
 
@@ -73,6 +125,7 @@ export default function ComboBox(
       >
         <div _id="ex2-combobox">
           <input
+            autoComplete="off"
             type="text"
             id={props.id}
             ref={textInput}
@@ -104,14 +157,19 @@ export default function ComboBox(
                   className={`${
                     styles.result
                   } ${
-                    props.autoSelect &&
-                    i === 0
+                    current &&
+                    item &&
+                    current.id ===
+                      item.id
                       ? styles.focused
                       : ""
                   }`}
                   key={item.id}
                   onClick={() => {
-                    select(item);
+                    select(
+                      item,
+                      true
+                    );
                   }}
                 >
                   {item.text}
