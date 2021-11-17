@@ -1,14 +1,57 @@
-import React from 'react'
+import React, { useState, useMemo } from "react";
 import useTitle from "../../hooks/useTItle/useTitle";
-import Brand from "../../assets/images/Customerinformation/expedia.png"
+import Brand from "../../assets/images/Customerinformation/expedia.png";
 import { Link } from "react-router-dom";
-import NotificationBar from '../../components/NotificationBar';
-import "./CustomerInformation.css"
+import NotificationBar from "../../components/NotificationBar";
+import "./CustomerInformation.css";
+import { Form, Formik, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import countryList from "react-select-country-list";
 
+const initialValues = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  password: "",
+  confirm_password: "",
+};
+
+const validationSchem = Yup.object({
+  firstname: Yup.string().required("Input field is required"),
+  lastname: Yup.string().required("input field is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(8, "Password must be at least 8 characters")
+    .required("Password is required"),
+  confirm_password: Yup.string()
+    .required("Please confirm password")
+    .when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf(
+        [Yup.ref("password")],
+        "Password does not match"
+      ),
+    }),
+});
+
+const onSubmit = (values) => {
+  console.log(JSON.stringify(values));
+};
 
 function CustomerInformation() {
   useTitle("Additional Information");
-  
+
+  function CountrySelector() {
+    const [value, setValue] = useState("");
+    const options = useMemo(() => countryList().getData(), []);
+
+    const changeHandler = (value) => {
+      setValue(value);
+    };
+  }
+
   return (
     <main>
       <NotificationBar />
@@ -117,15 +160,248 @@ function CustomerInformation() {
               <div className="blue_notice">
                 <i className="fas fa-3x fa-info-circle"></i>
                 <p>
-                  Use all given Names and surname exactly as they appear on the
-                  passport/ID to avoid conflict actions.
+                  Use all given Names and surname exactly as they
+                  <br /> appear on the passport/ID to avoid conflict actions.
                 </p>
               </div>
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchem}
+                onSubmit={onSubmit}
+              >
+                <Form>
+                  <div className="form_group">
+                    <div className="form_group_header">
+                      <p>Passenger 1(Adult - Primary Contact)</p>
+                    </div>
+                    <div className="form_group_body">
+                      <div className="form_group_body_input">
+                        <label for="surname">Surname</label>
+                        <br/>
+                        <Field
+                          as="select"
+                          id="title"
+                          type="select"
+                          name="Title"
+                          className="form-control"
+                        >
+                          <option value="title">Title</option>
+                          <option value="master">Master</option>
+                          <option value="miss">Miss</option>
+                          <option value="mr">Mr</option>
+                          <option value="mrs">Mrs</option>
+                        </Field>
+                        <ErrorMessage name="title" component="div" />
+                      </div>
+                      <div className="form_group_body_input">
+                        <Field
+                          id="last_name"
+                          type="text"
+                          name="last_name"
+                          placeholder="Last Name as on intl. Passport"
+                          className="form-control"
+                        />
+                        <ErrorMessage name="last_name" component="div" />
+                      </div>
+                    </div>
+                    <div className="form_group_body">
+                      <label for="firstname">First Name</label>
+                      <Field
+                        id="first_name"
+                        type="text"
+                        name="first_name"
+                        className="form-control"
+                        placeholder="First Name as on intl. Passport"
+                      />
+                      <ErrorMessage name="firstname" component="div" />
+                    </div>
+                    <div className="form_group_body">
+                      <label for="middle_name">Middle Name</label>
+                      <Field
+                        id="middle_name"
+                        type="text"
+                        name="middle_name"
+                        className="form-control"
+                        placeholder="Middle Name as on intl. Passport"
+                      />
+                      <ErrorMessage name="middle_name" component="div" />
+                    </div>
+                    <div className="form_group_body">
+                      <label for="surname">Nationality</label>
+                      <Field
+                        as="select"
+                        id="title"
+                        type="select"
+                        name="Nationality"
+                        className="form-control"
+                        options="{options}"
+                        value="{value}"
+                        onChange="{changeHandler}"
+                      >
+                        <option value="usa">USA</option>
+                        <option value="togo">Togo</option>
+                        <option value="canada">Canada</option>
+                      </Field>
+                      <ErrorMessage name="title" component="div" />
+                      <label for="surname">Gender</label>
+                      <Field
+                        as="select"
+                        id="title"
+                        type="select"
+                        name="Nationality"
+                        className="form-control"
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="transgender">Transgender</option>
+                      </Field>
+                      <ErrorMessage name="title" component="div" />
+                    </div>
+                    <div className="form_group_body">
+                      <label for="surname">Date of Birth</label>
+                      <Field
+                        as="select"
+                        id="title"
+                        type="select"
+                        name="dob_year"
+                        className="form-control"
+                      >
+                        <option value="month">Year</option>
+                        <option value="january">2021</option>
+                        <option value="febuary">2020</option>
+                      </Field>
+                      <ErrorMessage name="title" component="div" />
+                      <Field
+                        as="select"
+                        id="title"
+                        type="select"
+                        name="dob_month"
+                        className="form-control"
+                      >
+                        <option value="male">Month</option>
+                        <option value="female">January</option>
+                        <option value="transgender">Febuary</option>
+                      </Field>
+                      <ErrorMessage name="title" component="div" />
+                      <Field
+                        as="select"
+                        id="title"
+                        type="select"
+                        name="dob_day"
+                        className="form-control"
+                      >
+                        <option value="day">Day</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                      </Field>
+                    </div>
+                    <div className="form_group_body">
+                      <input type="checkbox" name="check" id="check" />
+                      <label for="checkbox">
+                        Save the traveller info and Contact details for a
+                        <strong> fast checkout </strong>
+                      </label>
+                    </div>
+                  </div>
+                </Form>
+              </Formik>
             </div>
           </div>
-          <div className="info">Here</div>
-          <div className="info">Here</div>
-          <div className="info">Here</div>
+          <div className="info">
+            <div className="flight_itinerary">
+              <div className="flight_itinerary_header">
+                <p>Where should we send your confirmation?</p>
+                <Link to="/">
+                  Your personal data is protected.
+                  <i class="fas fa-lock"></i>
+                </Link>
+              </div>
+              <hr />
+            </div>
+            <div className="flight_itinerary_body">
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchem}
+                onSubmit={onSubmit}
+              >
+                <Form>
+                  <div className="form_group">
+                    <div className="form_group_body">
+                      <label for="email_address">Email Address</label>
+                      <Field
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        className="form-control"
+                      />
+                      <ErrorMessage name="email" component="div" />
+                      <label for="phone_number">Phone Number</label>
+                      <Field
+                        id="phone_number"
+                        type=" number"
+                        name="phone_number"
+                        placeholder="+234"
+                        className="form-control"
+                      />
+                      <ErrorMessage name="phone_number" component="div" />
+                    </div>
+                  </div>
+                </Form>
+              </Formik>
+            </div>
+          </div>
+          <div className="info">
+            <p>Choose a seat</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div className="info">
+            <p>Add Extra Baggage</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div className="info">
+            <div className="flight_itinerary">
+              <div className="flight_itinerary_header">
+                <p>Membership Card Number / Promo Code</p>
+                <i class="fas fa-chevron-up"></i>
+              </div>
+              <hr />
+            </div>
+            <div className="flight_itinerary_body">
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchem}
+                onSubmit={onSubmit}
+              >
+                <Form>
+                  <div className="form_group">
+                    <div className="form_group_body">
+                      <label for="promo_code">Enter Promo Code</label>
+                      <Field
+                        id="code"
+                        type="text"
+                        name="promo_code"
+                        placeholder=""
+                        className="form-control"
+                      />
+                      <ErrorMessage name="promo_code" component="div" />
+                    </div>
+                  </div>
+                </Form>
+              </Formik>
+            </div>
+          </div>
+          <div className="info">
+            <p>Do you have a Corporate code?</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div className="form_group_body">
+            <input type="checkbox" name="check" id="check" />
+            <label for="checkbox">
+              Save the traveller info and Contact details for a
+              <strong> fast checkout </strong>
+            </label>
+          </div>
         </div>
       </div>
     </main>

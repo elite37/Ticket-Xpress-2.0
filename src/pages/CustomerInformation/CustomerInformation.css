@@ -44,6 +44,10 @@ main {
   font-weight: 600;
 }
 
+.flight_itinerary_header > a > i {
+  margin: 5px;
+}
+
 a {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
@@ -98,4 +102,40 @@ hr {
 
 .flight_itinerary_info_dnt {
   font-size: 20px;
+}
+
+.blue_notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: skyblue;
+  margin: 5px;
+  font-family: "poppins", sans-serif;
+}
+
+.blue_notice > p {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.form_group {
+  margin: 5px;
+  padding: 5px;
+  font-family: "poppins", sans-serif;
+}
+
+.form_group_header {
+  font-size: 30px;
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+
+.form_group_body {
+  display: flex;
+  align-items: center;
+}
+
+.form_group_body_input {
+  display: flex;
+  flex-direction: column;
 }
