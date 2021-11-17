@@ -1,6 +1,27 @@
 [
-    {
-        "code": "ADT",
-        "text": "Adults"
-    }
+  {
+    "code": "ADT",
+    "text": "Adult",
+    "pluralText": "Adults"
+  },
+  {
+    "code": "CHD",
+    "text": "Child",
+    "pluralText": "Children"
+  },
+  {
+    "code": "INF",
+    "text": "Infant without a seat",
+    "pluralText": "Infants without seats"
+  },
+  {
+    "code": "INS",
+    "text": "Infant with seat",
+    "pluralText": "Infants with seats"
+  },
+  {
+    "code": "UNN",
+    "text": "Unnaccompanied child",
+    "pluralText": "Unaccompanied children"
+  }
 ]

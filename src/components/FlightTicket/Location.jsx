@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { api } from "../../../utils/api";
-import ComboBox from "../../UI/ComboBox/ComboBox";
+import { api } from "../../utils/api";
+import ComboBox from "../UI/ComboBox/ComboBox";
 
 export default function Destination(props) {
   const [items, setItems] = useState([]);
@@ -15,7 +15,7 @@ export default function Destination(props) {
   return (
     <ComboBox
       placeholder="City Or Airport"
-      onSelect={props.onChange}
+      onSelect={props.onSelect}
       getItems={search}
       items={items}
     />

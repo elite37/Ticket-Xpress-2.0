@@ -9,9 +9,3 @@
     flex-direction: row;
     gap: .2rem;
 }
-
-.numInput {
-    max-width: 37px;
-    background-color: rgb(0,0,0,0);
-    border: .1rem solid;   
-}
