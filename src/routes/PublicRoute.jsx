@@ -1,7 +1,8 @@
 import React from "react";
 import { Redirect, Route } from "react-router";
 import { isLogin } from "../utils";
-const PublicRoute = ({ component: Component, restricted, ...others }) => {
+
+const PublicRoute = ({ component: Component, restricted, ...others }) => {  
   return (
     <Route
       {...others}

@@ -1,15 +1,13 @@
 import { useDispatch } from "react-redux";
 import { flightClass } from "../flightStoreSlice";
 import styles from './.module.css'
-import uiStyles from '@ui/.module.css'
 
-export default function FlightClass({ code, name, text }) {
+export default function _({ code, name, text }) {
   const dispatch = useDispatch();
 
   return (
     <div className={`${styles.entry}`}>
       <input
-        className={`${uiStyles.radio}`}
         type="radio"
         onChange={() => dispatch(flightClass({ value: code }))}
         id={code}

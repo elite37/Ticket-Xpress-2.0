@@ -1,14 +1,15 @@
 let local = 'http://127.0.0.1:5000'
 let live = 'elite-api.onrender.com'
 
-export let base = live
+export let base = process.env.NODE_ENV === 'development' ? local : live 
 
 export function send({ method, path, data, auth, fallback }) {
 	const opts = { method, headers: {} }
 
 	if (auth) {
-		if (auth.username) {
-			opts.headers['auth'] = Buffer.from(`${auth.username}:${auth.password || ''}`).toString('base64')
+		if (auth.password) {
+			// opts.headers['auth'] = JSON.stringify(auth)
+			opts.headers['auth'] = btoa(`${auth.username || ''}:${auth.password}`)
 		} else {
 			opts.headers['auth'] = auth
 		}
@@ -21,7 +22,7 @@ export function send({ method, path, data, auth, fallback }) {
 
 	try {
 		return fetch(`${base}/${path}`, opts)
-		.then(async (r) => {
+			.then(async (r) => {
 			return {
 				status: r.status,
 				text: await r.text()
@@ -44,19 +45,3 @@ export function send({ method, path, data, auth, fallback }) {
 		return fallback || {}
 	}
 }
-
-// export function get(path, auth) {
-// 	return send({ method: 'GET', path, auth });
-// }
-
-// export function del(path, auth) {
-// 	return send({ method: 'DELETE', path, auth });
-// }
-
-// export function post(path, data, auth) {
-// 	return send({ method: 'POST', path, data, auth });
-// }
-
-// export function put(path, data, auth) {
-// 	return send({ method: 'PUT', path, data, auth });
-// }

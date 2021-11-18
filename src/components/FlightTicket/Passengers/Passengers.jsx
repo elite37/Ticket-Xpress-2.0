@@ -1,22 +1,19 @@
 import Passenger from './Passenger'
-import { useDispatch, useSelector } from 'react-redux'
-import { passengersOpen } from '../flightStoreSlice'
 import passengerTypes from './passengerTypes.json'
-import Caret from '../../UI/Caret'
 import styles from './.module.css'
 import CaretLabel from '../../UI/CaretLabel'
+import { useState } from 'react'
 
 export default function Passengers() {
-    const dispatch = useDispatch()
-    const flightState = useSelector((state)=>state.flight)
+  const [open, setOpen] = useState(false)
 
     return (
       <>
         <CaretLabel
-          onClick={() => dispatch(passengersOpen())}
+          onClick={() => setOpen(s => !s)}
           label={() => <p>Number of Passengers</p>}
         />
-        {flightState.passengersOpen && (
+        {open && (
           <div className={`${styles.all}`}>
             {passengerTypes.map((passengerType) => (
               <Passenger key={passengerType.code} type={passengerType} />

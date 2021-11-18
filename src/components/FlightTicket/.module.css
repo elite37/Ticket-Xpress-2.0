@@ -118,35 +118,13 @@ body {
   column-gap: 1rem;
 }
 
-.flightform__from,
-.flightform__date {
+.flightform__from {
+  border-radius: 0;
   display: flex;
   align-items: center;
 }
 
-/* .flightform__from div, */
-.flightform__date div {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-  /* background:#e0cca6; */
-  background: #ffffff;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-/* .flightform__from div input, */
-.flightform__date div input {
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 0.5rem 0;
-  width: 100%;
-  font-size: 16px;
-  color: #223344;
-}
-
-/* .flightform__from div label, */
+.flightform__from div label,
 .flightform__date div label {
   color: #6d8494;
   font-size: 12px;
@@ -195,22 +173,6 @@ body {
   .flightform__from div {
     width: 100%;
     margin: 0 auto 10px auto;
-  }
-  .flightform__date {
-    flex-direction: column;
-    width: 100%;
-    margin: auto;
-  }
-  .flightform__date div {
-    width: 98%;
-    margin: 0 auto 10px auto;
-  }
-  .submitdiv {
-    justify-content: center;
-    margin-top: 0;
-  }
-  .flightsubmit {
-    width: 100%;
   }
   .flight__option {
     margin-right: 15px;

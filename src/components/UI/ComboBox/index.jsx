@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import InlineSpinner from "../InlineSpinner";
 import styles from "./.module.css";
 
 export default function ComboBox(props) {
@@ -9,25 +10,32 @@ export default function ComboBox(props) {
   const textInput = textInputRef.current;
 
   // init
+  const [getting, setGetting] = useState(false);
   const [current, setCurrent] = useState({});
 
+  const updateValue = (v) => {
+    if (textInput) {
+      textInput.value = v
+    }
+  }
+
   const select = (item, _hide = false) => {
+    console.log(".i.click", item);
     if (!item) return;
-    console.log(".c.select", item);
     if (_hide) hide();
     setCurrent(item);
-    if (textInput) {
-      textInput.value = item.text;
-    }
-    props.onSelect(item.id);
+    updateValue(item.text)
+    props.onSelect({ value: item.id });
   };
 
   const onTextInput = (e) => {
-    if (e.target.value.length >= 3) {
-      if (props.items && props.autoSelect) select(props.items[0]);
-      props.getItems(e.target.value);
-      show();
-    }
+  console.log(".d", __dirname);
+  if (e.target.value.length >= 3) {
+    setGetting(true);
+    props.getItems(e.target.value).then(() => setGetting(false));
+    if (props.items && props.autoSelect) select(props.items[0]);
+    show();
+  }
   };
 
   const show = () => {
@@ -91,40 +99,37 @@ export default function ComboBox(props) {
 
   return (
     <div className={`${styles.combobox}`}>
-      <label _id="ex2-label" htmlFor={props.id} className={`${styles.comboboxLabel}`}>
-        {props.label}
-      </label>
-
+      <div>
+        <label htmlFor={props.id} className={`${styles.comboboxLabel}`}>
+          {props.label}
+        </label>
+        {getting && <InlineSpinner width="11" fill="#87CEEB" />}
+      </div>
       <div className={`${styles.comboboxWrapper}`}>
-        <div _id="ex2-combobox">
-          <input
-            autoComplete="off"
-            type="text"
-            id={props.id}
-            ref={textInput}
-            onFocus={() => show()}
-            onKeyDown={inputKeyDown}
-            placeholder={props.placeholder}
-            onBlur={() => {
-              hide();
-            }}
-            onInput={onTextInput}
-          />
-        </div>
+        <input
+          autoComplete="off"
+          type="text"
+          id={props.id}
+          ref={textInput}
+          className={`${styles.input}`}
+          onFocus={() => show()}
+          onKeyDown={inputKeyDown}
+          placeholder={props.placeholder}
+          // onBlur={() => {
+          //   hide();
+          // }}
+          onInput={onTextInput}
+        />
         <ul _id="ex2-listbox" ref={listboxRef} className={`${styles.listbox} ${hidden ? styles.hidden : ""}`}>
           {props.items &&
-            props.items.map((item, i) => (
+            props.items.map((item) => (
               <li
                 className={`${styles.result} ${
                   current && item && current.id === item.id ? styles.focused : ""
                 }`}
                 key={item.id}
                 onClick={() => {
-                  console.log(".i.click", item);
                   select(item, true);
-                }}
-                onMouseUp={() => {
-                  console.log(".mo");
                 }}
               >
                 {item.text}

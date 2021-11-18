@@ -6,6 +6,19 @@
   box-sizing: border-box;
 }
 
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    row-gap: .2rem;
+}
+
+.radioEntry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .2rem;
+}
+
 a {
   text-decoration: none;
   color: #df6951;

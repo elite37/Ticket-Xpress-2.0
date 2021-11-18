@@ -1,0 +1,6 @@
+auth ui
+    show password
+    validate email
+
+create flight record
+get flight record

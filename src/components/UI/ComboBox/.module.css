@@ -22,9 +22,18 @@
   margin-right: 5px;
 }
 
+.input {
+  border: 0;
+  background: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
 .listbox,
 .grid {
-  min-width: 230px;
+  max-width: 230px;
   background: white;
   border: 1px solid #ccc;
   list-style: none;
@@ -71,7 +80,6 @@
 
 .comboboxWrapper input {
   background-color: rgb(0,0,0,0);
-    border: .1rem solid;
     border-radius: 0;
   line-height: 1.5em;
   padding-right: 30px;

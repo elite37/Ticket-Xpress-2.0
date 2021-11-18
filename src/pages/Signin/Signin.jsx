@@ -1,16 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link, Redirect } from "react-router-dom";
 import "./Signin.css";
+import RadioGroup from "../../components/UI/RadioGroup";
+import { api } from "../../utils/api";
+import * as cookie from "cookie";
+import { useDispatch } from "react-redux";
+import { setUser } from '../../state/slices/user'
 import heroImage from "../../assets/images/Hero-Image.png";
 import Google from "../../assets/images/signup/google.png";
 import Facebook from "../../assets/images/signup/facebook.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+const userDashboardRoute = "/userdashboard";
+const customerType = "customer";
+const agentType = "agent";
+
 const initialValues = {
   email: "",
   password: "",
 };
+
+const userTypes = [
+  {
+    value: customerType,
+    text: "Customer",
+  },
+  {
+    value: agentType,
+    text: "Agent",
+  },
+];
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -19,13 +39,53 @@ const validationSchema = Yup.object({
   password: Yup.string().required("Password is required"),
 });
 
-const onSubmmit = (values) => {
-  console.log(JSON.stringify(values));
-};
-
 function Signin() {
+  const [dashboardRoute, setDashboardRoute] = useState('')
+  const dispatch = useDispatch()
+  const [userType, setUserType] = useState(customerType);
+
+  const go = () => {
+    switch (userType) {
+      case customerType:
+        setDashboardRoute(userDashboardRoute);
+        break;
+      case agentType:
+        setDashboardRoute("/dashboard");
+        break;
+      default:
+        setDashboardRoute(userDashboardRoute);
+    }
+  }
+
+  const onSubmit = async (
+    { email, password },
+    f
+  ) => {
+    let res = await api.post(
+      "tokens",
+      {
+        userType,
+        email,
+      },
+      { password }
+    );
+    console.log("..r", res);
+    if (res.error) {
+      f.setFieldError(res.field, res.error);
+      return;
+    }
+    if (res.user) {
+      dispatch(setUser(res.user))
+      if (res.token) {
+        document.cookie = `token=${res.token}`
+      }
+      go()
+    }
+  };
+
   return (
     <section className="userform signup">
+      {dashboardRoute && <Redirect to={dashboardRoute} />}
       <div className="userform__left">
         <Link to="/">
           <img src={heroImage} alt="TicketXpress" />
@@ -80,9 +140,16 @@ function Signin() {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmmit}
+            onSubmit={onSubmit}
           >
             <Form>
+              <RadioGroup
+                options={userTypes}
+                title="Select a user type"
+                checked={userType}
+                onChange={setUserType}
+                name="userType"
+              />
               <div className="formGroup">
                 <label htmlFor="emailaddress">Email Address</label>
                 <Field id="emailField" name="email" type="email" />
@@ -90,7 +157,11 @@ function Signin() {
               </div>
               <div className="formGroup">
                 <label htmlFor="lastname">Password</label>
-                <Field id="passwordField" name="password" type="password" />
+                <Field
+                  id="passwordField"
+                  name="password"
+                  type="password"
+                />
                 <ErrorMessage name="password" component="div" />
               </div>
 
@@ -106,7 +177,11 @@ function Signin() {
               </div>
 
               <div className="signsub">
-                <input id="loginButton" type="submit" value="Login" />
+                <input
+                  id="loginButton"
+                  type="submit"
+                  value="Login"
+                />
               </div>
             </Form>
           </Formik>

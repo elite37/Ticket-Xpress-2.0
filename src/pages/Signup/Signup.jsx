@@ -1,13 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link, useHistory } from "react-router-dom";
+import RadioGroup from '../../components/UI/RadioGroup'
 import "./Signup.css";
+import { api } from "../../utils/api";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../state/slices/user";
+import * as cookie from "cookie";
 import heroImage from "../../assets/images/Hero-Image.png";
 import Google from "../../assets/images/signup/google.png";
 import Facebook from "../../assets/images/signup/facebook.png";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+const customerType = 'customer'
+const agentType = 'agent'
+
 const initialValues = {
+  userType: "",
   firstname: "",
   lastname: "",
   email: "",
@@ -15,7 +24,7 @@ const initialValues = {
   confirm_password: "",
 };
 
-const validationSchem = Yup.object({
+const validationSchema = Yup.object({
   firstname: Yup.string().required("Input field is required"),
   lastname: Yup.string().required("input field is required"),
   email: Yup.string()
@@ -35,11 +44,62 @@ const validationSchem = Yup.object({
     }),
 });
 
-const onSubmit = (values) => {
-  console.log(JSON.stringify(values));
-};
+const userTypes = [
+  {
+    value: customerType,
+    text: 'Customer'
+  },
+  {
+    value: agentType,
+    text: 'Agent'
+  }
+]
 
 function Signup() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [userType, setUserType] = useState(customerType)
+
+  const onSubmit = async ({
+    firstname,
+    lastname,
+    email,
+    password,
+  }, f) => {
+    let res = await api.post(
+      "users",
+      {
+        userType,
+        firstname,
+        lastname,
+        email
+      },
+      { password }
+    );
+    console.log("..r", res);
+    if (res.error) {
+      f.setFieldError(res.field, res.error)
+      return
+    }
+    if (res.user) {
+      if (res.token) document.cookie = `token=${res.token}`;
+      dispatch(setUser(res.user));
+      let dashboardRoute;
+      switch (userType) {
+        case customerType:
+          dashboardRoute = '/userdashboard'
+          break
+        case agentType:
+          dashboardRoute = '/dashboard'
+          break
+        default:
+          dashboardRoute = '/userdashboard'
+      }
+      console.log(dashboardRoute)
+      history.push(dashboardRoute)
+    }
+  };
+
   return (
     <section className="userform signup">
       <div className="userform__left">
@@ -88,10 +148,17 @@ function Signup() {
 
           <Formik
             initialValues={initialValues}
-            validationSchema={validationSchem}
+            validationSchema={validationSchema}
             onSubmit={onSubmit}
           >
             <Form>
+              <RadioGroup
+                options={userTypes}
+                title='Select a user type'
+                checked={userType}
+                onChange={setUserType}
+                name='userType'
+              />
               <div className="row">
                 <div className="formGroup">
                   <label htmlFor="firstname">First Name</label>
@@ -132,17 +199,25 @@ function Signup() {
                   name="password"
                   className="form-control"
                 />
-                <ErrorMessage name="password" component="password" />
+                <ErrorMessage
+                  name="password"
+                  component="password"
+                />
               </div>
               <div className="formGroup">
-                <label for="confirm_password">Confirm Password</label>
+                <label htmlFor="confirm_password">
+                  Confirm Password
+                </label>
                 <Field
                   id="passwordField"
                   type="password"
                   name="confirm_password"
                   className="form-control"
                 />
-                <ErrorMessage name="confirm_password" component="confirm_password"  />
+                <ErrorMessage
+                  name="confirm_password"
+                  component="confirm_password"
+                />
               </div>
 
               <div className="condition">
@@ -156,7 +231,11 @@ function Signup() {
               </div>
 
               <div className="signsub">
-                <input id="signUpButton" type="submit" value="Register" />
+                <input
+                  id="signUpButton"
+                  type="submit"
+                  value="Register"
+                />
               </div>
             </Form>
           </Formik>
