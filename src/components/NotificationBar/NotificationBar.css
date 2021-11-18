@@ -1,0 +1,23 @@
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 15px 30px;
+  background: #181e4b;
+  border-radius: 20px;
+  color: #fff;
+  font-family: "poppins", sans-serif;
+}
+
+.notification_text {
+  font-size: 20px;
+}
+
+.notification-_header {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "poppins", sans-serif;
+  color: #181e4b;
+  margin: 15px 30px;
+}
