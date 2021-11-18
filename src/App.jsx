@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
-import { getAccessToken, isLogin } from "./utils";
+import { getAccessToken } from "./utils";
 // import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
 // Lazy load pages here for optimization

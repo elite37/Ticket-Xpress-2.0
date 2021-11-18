@@ -12,24 +12,24 @@ function DashboardSidebar() {
   return (
     <div className={Styles.sidebar}>
       <div className={Styles.logo__container}>
-        <img src={TicketExpressLogo} alt="Ticket Express" />
+        <img src={TicketExpressLogo} alt='Ticket Express' />
       </div>
       <ul className={Styles.dashboard__tab}>
-        <TabLink name="Overview" active Icon={HomeIcon} route="/dashboard" />
+        <TabLink name='Overview' active Icon={HomeIcon} route='/dashboard' />
         <TabLink
-          name="Add Booking"
+          name='Add Booking'
           Icon={AddCircleOutlineIcon}
-          route="/dashboard/addbooking"
+          route='/dashboard/addbooking'
         />
         <TabLink
-          name="Settings"
+          name='Settings'
           Icon={SettingsIcon}
-          route="/dashboard/settings"
+          route='/dashboard/settings'
         />
       </ul>
 
       <ul className={Styles.logout}>
-        <TabLink name="Logout" Icon={LogoutIcon} />
+        <TabLink name='Logout' route='/dashboard' Icon={LogoutIcon} logoutbtn />
       </ul>
     </div>
   );

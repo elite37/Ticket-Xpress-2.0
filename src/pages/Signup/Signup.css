@@ -135,11 +135,7 @@ div {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-<<<<<<< HEAD
-.formGroup select {
-=======
 select {
->>>>>>> 88e56ec05e3c14e93e687bbbe53ecb90c4a9140b
   padding: 0.5rem 1rem;
   width: 100%;
   border: 1px solid #c93c32;

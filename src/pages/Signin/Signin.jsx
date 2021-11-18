@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Signin.css";
 import heroImage from "../../assets/images/Hero-Image.png";
 import Google from "../../assets/images/signup/google.png";
-import Facebook from "../../assets/images/signup/facebook.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { setAccessToken } from "../../utils";
 
 const initialValues = {
   email: "",
@@ -28,8 +28,8 @@ function Signin() {
       .post("http://ticketxpressapp.herokuapp.com/api/auth/login", values)
       .then(async (res) => {
         console.log(res.data);
-        localStorage.setItem("userData", JSON.stringify(res.data));
-        localStorage.setItem("token", res.data.token);
+        setAccessToken(res);
+        window.location = "/userdashboard";
         // await setIsAuth(true);
       })
       .catch((err) => {
@@ -92,7 +92,7 @@ function Signin() {
 
           <p id='authError' className='error'></p>
 
-          <span className="loginError">{error ? error : ""}</span>
+          <span className='loginError'>{error ? error : ""}</span>
 
           <Formik
             initialValues={initialValues}
