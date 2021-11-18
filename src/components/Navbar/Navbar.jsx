@@ -12,6 +12,10 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", getPosition);
+
+    return () => {
+      window.removeEventListener("scroll", getPosition);
+    };
   }, [scrollPosition]);
 
   return (
