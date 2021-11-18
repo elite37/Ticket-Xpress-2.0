@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
-import { isLogin } from "./utils";
+import { getAccessToken, isLogin } from "./utils";
 // import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
 // Lazy load pages here for optimization
@@ -25,24 +25,24 @@ const MyTripPage = lazy(() => import("./pages/MyTripPage"));
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
-        {!isLogin() && <Navbar />}
+        {!getAccessToken() && <Navbar />}
         <Suspense fallback={<Spinner />}>
           <Switch>
-            <PublicRoute exact path="/" component={Home} />
-            <PublicRoute path="/about" component={About} />
-            <PublicRoute path="/bus" component={BusPage} />
-            <PublicRoute path="/flight" component={FlightPage} />
-            <PublicRoute path="/train" component={TrainPage} />
-            <PublicRoute path="/contact" component={Contact} />
-            <PublicRoute path="/tickets" component={Tickets} />
-            <PublicRoute path="/signin" restricted component={SignIn} />
-            <PublicRoute path="/signup" restricted component={SignUp} />
-            <PublicRoute path="/trip" component={MyTripPage} />
+            <PublicRoute exact path='/' component={Home} />
+            <PublicRoute path='/about' component={About} />
+            <PublicRoute path='/bus' component={BusPage} />
+            <PublicRoute path='/flight' component={FlightPage} />
+            <PublicRoute path='/train' component={TrainPage} />
+            <PublicRoute path='/contact' component={Contact} />
+            <PublicRoute path='/tickets' component={Tickets} />
+            <PublicRoute path='/signin' restricted component={SignIn} />
+            <PublicRoute path='/signup' restricted component={SignUp} />
+            <PublicRoute path='/trip' component={MyTripPage} />
             <PrivateRoute
-              path="/dashboard"
-              role="admin"
+              path='/dashboard'
+              role='admin'
               component={Dashboard}
             />
             <PrivateRoute
@@ -52,7 +52,7 @@ function App() {
             />
           </Switch>
         </Suspense>
-        {!isLogin() && <Footer />}
+        {!getAccessToken() && <Footer />}
       </Router>
     </div>
   );

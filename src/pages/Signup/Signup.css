@@ -134,7 +134,8 @@ div {
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+.formGroup select {
   padding: 0.5rem 1rem;
   width: 100%;
   border: 1px solid #c93c32;
@@ -157,6 +158,12 @@ input[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s ease-in;
+}
+
+#signUpButton:disabled {
+  cursor: initial;
+  background-color: #473938;
+  font-weight: lighter;
 }
 
 input[type="submit"]:hover {
