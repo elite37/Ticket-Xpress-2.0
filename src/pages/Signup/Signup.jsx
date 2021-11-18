@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import heroImage from "../../assets/images/Hero-Image.png";
@@ -6,6 +6,7 @@ import Google from "../../assets/images/signup/google.png";
 import Facebook from "../../assets/images/signup/facebook.png";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const initialValues = {
   firstname: "",
@@ -13,6 +14,7 @@ const initialValues = {
   email: "",
   password: "",
   confirm_password: "",
+  role: "",
 };
 
 const validationSchem = Yup.object({
@@ -35,11 +37,29 @@ const validationSchem = Yup.object({
     }),
 });
 
-const onSubmit = (values) => {
-  console.log(JSON.stringify(values));
-};
-
 function Signup() {
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
+
+  const onSubmit = async (values, onSubmitProps) => {
+    const { ...data } = values;
+    
+    const result = await axios
+      .post("http://ticketxpressapp.herokuapp.com/api/auth/register", data)
+      .catch((err) => {
+        if (err && err.response) {
+          setSuccess(null);
+          setError(err.response.data.message);
+        }
+      });
+
+    if (result && result.data) {
+      setError(null);
+      setSuccess(result.data.message);
+      onSubmitProps.resetForm();
+    }
+  };
+
   return (
     <section className='userform signup'>
       <div className='userform__left'>
@@ -86,6 +106,8 @@ function Signup() {
 
           <p id='authError' className='error'></p>
 
+          <span className="formError">{error ? error : ""}</span>
+          <span className="formSuccess">{success ? success : ""}</span>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchem}
@@ -114,6 +136,7 @@ function Signup() {
                   <ErrorMessage name='lastname' component='div' />
                 </div>
               </div>
+<<<<<<< HEAD
               <div className='formGroup'>
                 <label for='emailaddress'>Email Address</label>
                 <Field
@@ -123,6 +146,33 @@ function Signup() {
                   className='form-control'
                 />
                 <ErrorMessage name='email' component='div' />
+=======
+              <div className="row">
+                <div className="formGroup">
+                  <label for="role">Register as</label>
+                  <Field
+                    id="emailField"
+                    as="select"
+                    name="role"
+                    className="form-control"
+                  >
+                    <option value="" label="Select a role" />
+                    <option value="Agent" label="Agent" />
+                    <option value="User" label="User" />
+                  </Field>
+                  <ErrorMessage name="email" component="div" />
+                </div>
+                <div className="formGroup">
+                  <label for="emailaddress">Email Address</label>
+                  <Field
+                    id="emailField"
+                    type="email"
+                    name="email"
+                    className="form-control"
+                  />
+                  <ErrorMessage name="email" component="div" />
+                </div>
+>>>>>>> 88e56ec05e3c14e93e687bbbe53ecb90c4a9140b
               </div>
               <div className='formGroup'>
                 <label for='password'>Password</label>
@@ -146,6 +196,13 @@ function Signup() {
                   name='confirm_password'
                   component='confirm_password'
                 />
+<<<<<<< HEAD
+=======
+                <ErrorMessage
+                  name="confirm_password"
+                  component="confirm_password"
+                />
+>>>>>>> 88e56ec05e3c14e93e687bbbe53ecb90c4a9140b
               </div>
 
               <div className='condition'>

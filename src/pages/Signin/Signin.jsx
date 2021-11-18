@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signin.css";
 import heroImage from "../../assets/images/Hero-Image.png";
@@ -6,6 +6,7 @@ import Google from "../../assets/images/signup/google.png";
 import Facebook from "../../assets/images/signup/facebook.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const initialValues = {
   email: "",
@@ -19,11 +20,25 @@ const validationSchema = Yup.object({
   password: Yup.string().required("Password is required"),
 });
 
-const onSubmmit = (values) => {
-  console.log(JSON.stringify(values));
-};
-
 function Signin() {
+  const [error, setError] = useState(null);
+
+  const onSubmmit = async (values) => {
+    await axios
+      .post("http://ticketxpressapp.herokuapp.com/api/auth/login", values)
+      .then(async (res) => {
+        console.log(res.data);
+        localStorage.setItem("userData", JSON.stringify(res.data));
+        localStorage.setItem("token", res.data.token);
+        // await setIsAuth(true);
+      })
+      .catch((err) => {
+        if (err && err.response) {
+          setError(err.response.data.message);
+        }
+      });
+  };
+
   return (
     <section className='userform signup'>
       <div className='userform__left'>
@@ -76,6 +91,8 @@ function Signin() {
           </div>
 
           <p id='authError' className='error'></p>
+
+          <span className="loginError">{error ? error : ""}</span>
 
           <Formik
             initialValues={initialValues}
