@@ -22,6 +22,7 @@ const FlightPage = lazy(() => import("./pages/FlightPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 const MyTripPage = lazy(() => import("./pages/MyTripPage"));
+const CustomerInformation = lazy(() => import("./pages/CustomerInformation"));
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <PublicRoute path="/signin" restricted component={SignIn} />
             <PublicRoute path="/signup" restricted component={SignUp} />
             <PublicRoute path="/trip" component={MyTripPage} />
+            <PublicRoute path="/info" component={CustomerInformation} />
             <PrivateRoute
               path="/dashboard"
               role="admin"
