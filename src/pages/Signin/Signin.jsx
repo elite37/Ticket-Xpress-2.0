@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Signin.css";
 import heroImage from "../../assets/images/Hero-Image.png";
 import Google from "../../assets/images/signup/google.png";
-import Facebook from "../../assets/images/signup/facebook.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { setAccessToken } from "../../utils";
 
 const initialValues = {
   email: "",
@@ -28,8 +28,8 @@ function Signin() {
       .post("http://ticketxpressapp.herokuapp.com/api/auth/login", values)
       .then(async (res) => {
         console.log(res.data);
-        localStorage.setItem("userData", JSON.stringify(res.data));
-        localStorage.setItem("token", res.data.token);
+        setAccessToken(res);
+        window.location = "/userdashboard";
         // await setIsAuth(true);
       })
       .catch((err) => {
@@ -40,43 +40,43 @@ function Signin() {
   };
 
   return (
-    <section className="userform signup">
-      <div className="userform__left">
-        <Link to="/">
-          <img src={heroImage} alt="TicketXpress" />
+    <section className='userform signup'>
+      <div className='userform__left'>
+        <Link to='/'>
+          <img src={heroImage} alt='TicketXpress' />
         </Link>
       </div>
-      <div className="userform__right">
-        <div className="useform__conn">
+      <div className='userform__right'>
+        <div className='useform__conn'>
           <h1>Welcome</h1>
-          <p className="userform__switch">
+          <p className='userform__switch'>
             Don't Have An Account?
-            <Link to="/signup">Sign Up</Link>
+            <Link to='/signup'>Sign Up</Link>
           </p>
 
-          <div className="alternative__signin">
-            <div className="alt alt1">
+          <div className='alternative__signin'>
+            <div className='alt alt1'>
               <button>
-                <Link to="https://google.com">
+                <Link to='https://google.com'>
                   <img
                     src={Google}
-                    width="200"
-                    alt="google logo png webinar optimizing for success google business webinar"
+                    width='200'
+                    alt='google logo png webinar optimizing for success google business webinar'
                   />
                 </Link>
                 Sign Up With Google
               </button>
             </div>
-            <div className="alt alt2">
+            <div className='alt alt2'>
               <button>
                 <Link
-                  to="https://www.freepnglogos.com/pics/facebook-logo"
-                  title="Image from freepnglogos.com"
+                  to='https://www.freepnglogos.com/pics/facebook-logo'
+                  title='Image from freepnglogos.com'
                 >
                   <img
-                    src="https://www.freepnglogos.com/uploads/facebook-logo-13.png"
-                    width="200"
-                    alt="logo facebook download png"
+                    src='https://www.freepnglogos.com/uploads/facebook-logo-13.png'
+                    width='200'
+                    alt='logo facebook download png'
                   />
                 </Link>
                 Sign Up With Facebook
@@ -84,15 +84,15 @@ function Signin() {
             </div>
           </div>
 
-          <div className="or">
+          <div className='or'>
             <hr />
             <p>OR</p>
             <hr />
           </div>
 
-          <p id="authError" className="error"></p>
+          <p id='authError' className='error'></p>
 
-          <span className="loginError">{error ? error : ""}</span>
+          <span className='loginError'>{error ? error : ""}</span>
 
           <Formik
             initialValues={initialValues}
@@ -100,30 +100,30 @@ function Signin() {
             onSubmit={onSubmmit}
           >
             <Form>
-              <div className="formGroup">
-                <label for="emailaddress">Email Address</label>
-                <Field id="emailField" name="email" type="email" />
-                <ErrorMessage name="email" component="div" />
+              <div className='formGroup'>
+                <label for='emailaddress'>Email Address</label>
+                <Field id='emailField' name='email' type='email' />
+                <ErrorMessage name='email' component='div' />
               </div>
-              <div className="formGroup">
-                <label for="lastname">Password</label>
-                <Field id="passwordField" name="password" type="password" />
-                <ErrorMessage name="password" component="div" />
+              <div className='formGroup'>
+                <label for='lastname'>Password</label>
+                <Field id='passwordField' name='password' type='password' />
+                <ErrorMessage name='password' component='div' />
               </div>
 
-              <div className="remember">
-                <div className="rememberMe">
-                  <input type="checkbox" name="" id="" />
-                  <label for="">Remeber Me</label>
+              <div className='remember'>
+                <div className='rememberMe'>
+                  <input type='checkbox' name='' id='' />
+                  <label for=''>Remeber Me</label>
                 </div>
 
-                <div className="forgotPass">
-                  <a href="/">Forgot Password?</a>
+                <div className='forgotPass'>
+                  <a href='/'>Forgot Password?</a>
                 </div>
               </div>
 
-              <div className="signsub">
-                <input id="loginButton" type="submit" value="Login" />
+              <div className='signsub'>
+                <input id='loginButton' type='submit' value='Login' />
               </div>
             </Form>
           </Formik>

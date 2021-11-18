@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
-import { isLogin } from "./utils";
+import { getAccessToken } from "./utils";
 // import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
 // Lazy load pages here for optimization
@@ -26,11 +26,12 @@ const CustomerInformation = lazy(() => import("./pages/CustomerInformation"));
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
-        {!isLogin() && <Navbar />}
+        {!getAccessToken() && <Navbar />}
         <Suspense fallback={<Spinner />}>
           <Switch>
+
             <PublicRoute exact path="/" component={Home} />
             <PublicRoute path="/about" component={About} />
             <PublicRoute path="/bus" component={BusPage} />
@@ -42,9 +43,10 @@ function App() {
             <PublicRoute path="/signup" restricted component={SignUp} />
             <PublicRoute path="/trip" component={MyTripPage} />
             <PublicRoute path="/info" component={CustomerInformation} />
+
             <PrivateRoute
-              path="/dashboard"
-              role="admin"
+              path='/dashboard'
+              role='admin'
               component={Dashboard}
             />
             <PrivateRoute
@@ -54,7 +56,7 @@ function App() {
             />
           </Switch>
         </Suspense>
-        {!isLogin() && <Footer />}
+        {!getAccessToken() && <Footer />}
       </Router>
     </div>
   );

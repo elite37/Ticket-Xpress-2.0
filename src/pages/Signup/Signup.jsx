@@ -43,7 +43,7 @@ function Signup() {
 
   const onSubmit = async (values, onSubmitProps) => {
     const { ...data } = values;
-    
+
     const result = await axios
       .post("http://ticketxpressapp.herokuapp.com/api/auth/register", data)
       .catch((err) => {
@@ -61,143 +61,147 @@ function Signup() {
   };
 
   return (
-    <section className="userform signup">
-      <div className="userform__left">
-        <Link to="/">
-          <img src={heroImage} alt="TicketXpress" />
+    <section className='userform signup'>
+      <div className='userform__left'>
+        <Link to='/'>
+          <img src={heroImage} alt='TicketXpress' />
         </Link>
       </div>
-      <div className="userform__right">
-        <div className="useform__conn">
+      <div className='userform__right'>
+        <div className='useform__conn'>
           <h1>Get Started</h1>
-          <p className="userform__switch">
+          <p className='userform__switch'>
             Already Have An Account?
-            <Link to="/signin">Login</Link>
+            <Link to='/signin'>Login</Link>
           </p>
 
-          <div className="alternative__signin">
-            <div className="alt alt1">
+          <div className='alternative__signin'>
+            <div className='alt alt1'>
               <button>
-                <Link to="https://google.com" title="google">
+                <Link to='https://google.com' title='google'>
                   <img
                     src={Google}
-                    width="200"
-                    alt="google logo png webinar optimizing for success google business webinar"
+                    width='200'
+                    alt='google logo png webinar optimizing for success google business webinar'
                   />
                 </Link>
                 Sign Up With Google
               </button>
             </div>
-            <div className="alt alt2">
+            <div className='alt alt2'>
               <button>
-                <Link to="https://facebook.com" title="facebook">
-                  <img src={Facebook} width="200" alt="facebook" />
+                <Link to='https://facebook.com' title='facebook'>
+                  <img src={Facebook} width='200' alt='facebook' />
                 </Link>
                 Sign Up With Facebook
               </button>
             </div>
           </div>
 
-          <div className="or">
+          <div className='or'>
             <hr />
             <p>OR</p>
             <hr />
           </div>
 
-          <p id="authError" className="error"></p>
+          <p id='authError' className='error'></p>
 
-          <span className="formError">{error ? error : ""}</span>
-          <span className="formSuccess">{success ? success : ""}</span>
+          <span className='formError'>{error ? error : ""}</span>
+          <span className='formSuccess'>{success ? success : ""}</span>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchem}
             onSubmit={onSubmit}
           >
             <Form>
-              <div className="row">
-                <div className="formGroup">
-                  <label for="firstname">First Name</label>
+              <div className='row'>
+                <div className='formGroup'>
+                  <label for='firstname'>First Name</label>
                   <Field
-                    id="firstNameField"
-                    type="text"
-                    name="firstname"
-                    className="form-control"
+                    id='firstNameField'
+                    type='text'
+                    name='firstname'
+                    className='form-control'
                   />
-                  <ErrorMessage name="firstname" component="div" />
+                  <ErrorMessage name='firstname' component='div' />
                 </div>
-                <div className="formGroup">
-                  <label for="lastname">Last Name</label>
+                <div className='formGroup'>
+                  <label for='lastname'>Last Name</label>
                   <Field
-                    id="lastNameField"
-                    type="text"
-                    name="lastname"
-                    className="form-control"
+                    id='lastNameField'
+                    type='text'
+                    name='lastname'
+                    className='form-control'
                   />
-                  <ErrorMessage name="lastname" component="div" />
+                  <ErrorMessage name='lastname' component='div' />
                 </div>
               </div>
-              <div className="row">
-                <div className="formGroup">
-                  <label for="role">Register as</label>
+              <div className='row'>
+                <div className='formGroup'>
+                  <label for='role'>Register as</label>
                   <Field
-                    id="emailField"
-                    as="select"
-                    name="role"
-                    className="form-control"
+                    id='emailField'
+                    as='select'
+                    name='role'
+                    className='form-control'
                   >
-                    <option value="" label="Select a role" />
-                    <option value="Agent" label="Agent" />
-                    <option value="User" label="User" />
+                    <option value='' label='Select a role' />
+                    <option value='Agent' label='Agent' />
+                    <option value='User' label='User' />
                   </Field>
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage name='email' component='div' />
                 </div>
-                <div className="formGroup">
-                  <label for="emailaddress">Email Address</label>
+                <div className='formGroup'>
+                  <label for='emailaddress'>Email Address</label>
                   <Field
-                    id="emailField"
-                    type="email"
-                    name="email"
-                    className="form-control"
+                    id='emailField'
+                    type='email'
+                    name='email'
+                    className='form-control'
                   />
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage name='email' component='div' />
                 </div>
               </div>
-              <div className="formGroup">
-                <label for="password">Password</label>
+              <div className='formGroup'>
+                <label for='password'>Password</label>
                 <Field
-                  id="passwordField"
-                  type="password"
-                  name="password"
-                  className="form-control"
+                  id='passwordField'
+                  type='password'
+                  name='password'
+                  className='form-control'
                 />
-                <ErrorMessage name="password" component="password" />
+                <ErrorMessage name='password' component='password' />
               </div>
-              <div className="formGroup">
-                <label for="confirm_password">Confirm Password</label>
+              <div className='formGroup'>
+                <label for='confirm_password'>Confirm Password</label>
                 <Field
-                  id="passwordField"
-                  type="password"
-                  name="confirm_password"
-                  className="form-control"
+                  id='passwordField'
+                  type='password'
+                  name='confirm_password'
+                  className='form-control'
                 />
                 <ErrorMessage
-                  name="confirm_password"
-                  component="confirm_password"
+                  name='confirm_password'
+                  component='confirm_password'
+                />
+                <ErrorMessage
+                  name='confirm_password'
+                  component='confirm_password'
                 />
               </div>
 
-              <div className="condition">
-                <input type="checkbox" name="" id="" />
-                <label for="condition">
+              <div className='condition'>
+                <input type='checkbox' name='' id='' />
+                <label for='condition'>
                   I agree to the platform's
-                  <a href="/">Terms Of Services</a>
+                  <a href='/'>Terms Of Services</a>
                   and
-                  <a href="/">Privacy And Policy</a>
+                  <a href='/'>Privacy And Policy</a>
                 </label>
               </div>
 
-              <div className="signsub">
-                <input id="signUpButton" type="submit" value="Register" />
+              <div className='signsub'>
+                <input id='signUpButton' type='submit' value='Register' />
               </div>
             </Form>
           </Formik>

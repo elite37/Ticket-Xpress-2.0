@@ -160,6 +160,12 @@ input[type="submit"] {
   transition: 0.3s ease-in;
 }
 
+#signUpButton:disabled {
+  cursor: initial;
+  background-color: #473938;
+  font-weight: lighter;
+}
+
 input[type="submit"]:hover {
   background: #8d3933;
 }
