@@ -45,7 +45,7 @@ function Signup() {
     const { ...data } = values;
 
     const result = await axios
-      .post("http://ticketxpressapp.herokuapp.com/api/auth/register", data)
+      .post("https://ticketxpressapp.herokuapp.com/api/auth/register", data)
       .catch((err) => {
         if (err && err.response) {
           setSuccess(null);
