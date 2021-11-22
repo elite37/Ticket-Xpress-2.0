@@ -1,21 +1,19 @@
 import FlightClass from "./FlightClass";
 import flightClasses from "./flightClasses.json";
-import { useSelector, useDispatch } from "react-redux";
-import { flightClassesOpen } from "../flightStoreSlice";
 import CaretLabel from "../../UI/CaretLabel";
 import styles from "./.module.css";
+import { useState } from "react";
 
 export default function FlightClasses() {
-  const dispatch = useDispatch();
-  const flightState = useSelector((state) => state.flight);
+  const [open, setOpen] = useState(false)
   return (
     <form>
       {/* <fieldset> */}
       <CaretLabel
-        onClick={() => dispatch(flightClassesOpen())}
+        onClick={() => setOpen(o=>!o)}
         label={() => <legend>Flight Class</legend>}
       />
-      {flightState.flightClassesOpen && (
+      {open && (
         <div className={`${styles.all}`}>
           {flightClasses.map((flightClass) => (
             <FlightClass

@@ -13,7 +13,7 @@ import {
 } from "./flightStoreSlice";
 import styles from "./.module.css";
 import Location from "./Location";
-import Passengers from "./Passengers/Passengers";
+import Passengers from "./Passengers";
 import FlightClasses from "./FlightClasses";
 
 export default function _(

@@ -3,8 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 export const flightSlice = createSlice({
   name: "flight",
   initialState: {
-    flightClassesOpen: false,
-    passengersOpen: false,
     roundTrip: false,
     flightClass: "F",
     origin: "",
@@ -14,14 +12,8 @@ export const flightSlice = createSlice({
     passengers: {},
   },
   reducers: {
-    flightClassesOpen: (state) => {
-      state.flightClassesOpen = !state.flightClassesOpen;
-    },
-    passengersOpen: (state) => {
-      state.passengersOpen = !state.passengersOpen;
-    },
     flightClass: (state, action) => {
-      state.flightClass = action.value;
+      state.flightClass = action.payload;
     },
     passengers: (state, action) => {
       state.passengers[action.payload.attr] = action.payload.value;
@@ -46,9 +38,7 @@ export const flightSlice = createSlice({
 
 export const {
   flightClass,
-  flightClassesOpen,
   passengers,
-  passengersOpen,
   roundTrip,
   destination,
   origin,

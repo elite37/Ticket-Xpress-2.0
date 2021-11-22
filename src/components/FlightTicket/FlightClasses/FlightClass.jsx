@@ -11,7 +11,7 @@ export default function FlightClass({ code, name, text }) {
       <input
         className={`${uiStyles.radio}`}
         type="radio"
-        onChange={() => dispatch(flightClass({ value: code }))}
+        onChange={() => dispatch(flightClass(code))}
         id={code}
         name={name}
         value={code}
