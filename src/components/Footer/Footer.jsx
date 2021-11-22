@@ -14,7 +14,7 @@ const Footer = () => {
             <h2>
               <img src={Logo} alt='logo' />
             </h2>
-            <p>Book your Ticket in minute, get full control for much longer.</p>
+            <p>Book your Ticket in minute, get full control htmlFor much longer.</p>
           </div>
           <div className={footerStyles.footer__content}>
             <h2>Company</h2>

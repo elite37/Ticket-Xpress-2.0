@@ -1,0 +1,18 @@
+[
+  {
+    "code": "F",
+    "text": "First class"
+  },
+  {
+    "code": "C",
+    "text": "Business class"
+  },
+  {
+    "code": "J",
+    "text": "Premium economy"
+  },
+  {
+    "code": "Y",
+    "text": "Economy"
+  }
+]

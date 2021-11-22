@@ -13,7 +13,7 @@ function MyTicket({ title, text, image }) {
       </div>
       <h3>Get My Ticket</h3>
       <p>
-        Yet to get your ticket? This service allows you to request for ticket on
+        Yet to get your ticket? This service allows you to request htmlFor ticket on
         a paid booking.
       </p>
       <p className='select'>

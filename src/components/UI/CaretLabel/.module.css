@@ -1,0 +1,5 @@
+.caret {
+    display: flex;
+    flex-direction: row;
+    row-gap: .1rem;
+}

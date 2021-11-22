@@ -9,7 +9,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import { getAccessToken } from "./utils";
 // import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
-// Lazy load pages here for optimization
+// Lazy load pages here htmlFor optimization
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Tickets = lazy(() => import("./pages/MyTicketsPage"));
