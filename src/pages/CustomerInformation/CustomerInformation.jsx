@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo } from 'react';
 import useTitle from "../../hooks/useTItle/useTitle";
 import Brand from "../../assets/images/Customerinformation/expedia.png";
 import { Link } from "react-router-dom";
-import NotificationBar from "../../components/NotificationBar";
+import NotificationBar from  "../../components/NotificationBar";
 import "./CustomerInformation.css";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
