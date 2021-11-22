@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import { flightClass } from "../flightStoreSlice";
 import styles from './.module.css'
-import uiStyles from '@ui/.module.css'
+import uiStyles from '../../UI/.module.css'
+// import uiStyles from '@ui/.module.css'
 
 export default function FlightClass({ code, name, text }) {
   const dispatch = useDispatch();
