@@ -27,7 +27,7 @@ function Services() {
           />
           <ServiceCard
             serviceTitle='Book Bus'
-            serviceBody='You can book your bus tickets with us for your trip.'
+            serviceBody='You can book your bus tickets with us htmlFor your trip.'
             serviceIcon={busIcon}
           />
           <ServiceCard

@@ -1,0 +1,11 @@
+.all {
+    display: flex;
+    flex-direction: column;
+    row-gap: .2rem;
+}
+
+.entry {
+    display: flex;
+    flex-direction: row;
+    gap: .2rem;
+}

@@ -8,7 +8,7 @@ import useTitle from "../../hooks/useTItle/useTitle";
 import "./Home.css";
 
 function Home() {
-  // A hook for setting the page title
+  // A hook htmlFor setting the page title
   useTitle("Home Page");
   return (
     <div>

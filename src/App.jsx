@@ -6,9 +6,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
-import { isLogin } from "./utils";
+import { getAccessToken } from "./utils";
+// import UserDashboard from "./pages/UserDashboard/UserDashboard";
 
-// Lazy load pages here for optimization
+// Lazy load pages here htmlFor optimization
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Tickets = lazy(() => import("./pages/MyTicketsPage"));
@@ -19,17 +20,20 @@ const BusPage = lazy(() => import("./pages/BusPage"));
 const TrainPage = lazy(() => import("./pages/TrainPage"));
 const FlightPage = lazy(() => import("./pages/FlightPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 const MyTripPage = lazy(() => import("./pages/MyTripPage"));
+const CustomerInformation = lazy(() => import("./pages/CustomerInformation"));
 
 const PaymentPage = lazy(() => import("./pages/PaymentPage"));
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
-        {!isLogin() && <Navbar />}
+        {!getAccessToken() && <Navbar />}
         <Suspense fallback={<Spinner />}>
           <Switch>
+
             <PublicRoute exact path="/" component={Home} />
             <PublicRoute path="/about" component={About} />
             <PublicRoute path="/bus" component={BusPage} />
@@ -41,14 +45,20 @@ function App() {
             <PublicRoute path="/signup" restricted component={SignUp} />
             <PublicRoute path="/trip" component={MyTripPage} />
             <PublicRoute path="/payment" component={PaymentPage} />
+            <PublicRoute path="/info" component={CustomerInformation} />
             <PrivateRoute
-              path="/dashboard"
-              role="admin"
+              path='/dashboard'
+              role='admin'
               component={Dashboard}
+            />
+            <PrivateRoute
+              path='/userdashboard'
+              role='user'
+              component={UserDashboard}
             />
           </Switch>
         </Suspense>
-        {!isLogin() && <Footer />}
+        {!getAccessToken() && <Footer />}
       </Router>
     </div>
   );

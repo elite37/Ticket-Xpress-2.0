@@ -20,7 +20,7 @@ function AddOn(props) {
         </div>
 
         <div className={MytripStyles.Booking_Body2}>
-          <h1>N39500</h1>
+          <h1>{props.price}</h1>
           <p>per passenger</p>
           <button className={MytripStyles.Trip_Btn}>
             ADD <AiOutlinePlus />

@@ -79,21 +79,21 @@ body {
   margin-bottom: 20px;
 }
 
-.filghttype {
+.flighttype {
   padding: 0.5rem 1rem;
   margin-right: 50px !important;
   background: #e0cca6;
   border-radius: 2px;
 }
 
-.filghttype a {
+.flighttype a {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
 }
 
-.filghttype a > div {
+.flighttype a > div {
   margin-left: 10px;
 }
 
@@ -176,7 +176,7 @@ body {
   .flightbooking__container {
     width: 100%;
   }
-  .filghttype {
+  .flighttype {
     width: 100%;
     margin: 7px auto;
   }

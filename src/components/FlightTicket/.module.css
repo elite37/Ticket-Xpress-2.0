@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  font-size: 82.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.flightbooking {
+  width: 100%;
+  padding: 2rem;
+}
+
+.flightbooking__container {
+  margin: auto;
+  width: 80%;
+  padding: 2rem;
+
+  padding-top: 7rem;
+}
+
+.flightbooking__top {
+  display: flex;
+  align-items: center;
+}
+
+.flight__option {
+  margin-right: 20px;
+  padding: 1rem 3rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: background 0.3s ease-in;
+}
+
+.flight__option:hover {
+  background: #f7f0e5;
+}
+
+.flight__option a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: gray;
+}
+
+.flight__option a div {
+  margin-left: 10px;
+}
+
+.flight__option.active {
+  background: #fff1da;
+}
+
+.flight__option.active a {
+  color: black;
+}
+
+.flightbooking__bottom {
+  background: #fff1da;
+  padding: 3rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.flighttypes {
+  display: flex;
+  /* align-items: center; */
+  margin-bottom: 20px;
+}
+
+.optionCheckbox {
+  margin-right: .1rem;
+}
+
+.flighttype {
+  padding: 0.5rem 1rem;
+  margin-right: 50px !important;
+  background: #e0cca6;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+.c a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.flighttype a > div {
+  margin-left: 10px;
+}
+
+.flightform {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.flightform__conn {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 1rem;
+}
+
+.flightform__from,
+.flightform__date {
+  display: flex;
+  align-items: center;
+}
+
+/* .flightform__from div, */
+.flightform__date div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  /* background:#e0cca6; */
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+/* .flightform__from div input, */
+.flightform__date div input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.5rem 0;
+  width: 100%;
+  font-size: 16px;
+  color: #223344;
+}
+
+/* .flightform__from div label, */
+.flightform__date div label {
+  color: #6d8494;
+  font-size: 12px;
+}
+
+.submitdiv {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flightsubmit {
+  border: none;
+  height: 100%;
+  outline: none;
+  height: 60px;
+  padding: 0.3rem 1.1rem;
+  color: #fff;
+  background: #f1a501;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 180px;
+}
+
+@media (max-width: 700px) {
+  .flight__option a span {
+    display: none;
+  }
+  .flighttypes {
+    flex-direction: column;
+  }
+  .flightbooking__container {
+    width: 100%;
+  }
+  .flighttype {
+    width: 100%;
+    margin: 7px auto;
+  }
+  .flightform__from {
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+  }
+  .flightform__from div {
+    width: 100%;
+    margin: 0 auto 10px auto;
+  }
+  .flightform__date {
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+  }
+  .flightform__date div {
+    width: 98%;
+    margin: 0 auto 10px auto;
+  }
+  .submitdiv {
+    justify-content: center;
+    margin-top: 0;
+  }
+  .flightsubmit {
+    width: 100%;
+  }
+  .flight__option {
+    margin-right: 15px;
+    padding: 1rem 2.9rem;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    transition: background 0.3s ease-in;
+  }
+
+  .flight__option a div {
+    margin-left: 0px;
+  }
+}
