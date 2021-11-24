@@ -24,6 +24,8 @@ const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 const MyTripPage = lazy(() => import("./pages/MyTripPage"));
 const CustomerInformation = lazy(() => import("./pages/CustomerInformation"));
 
+const PaymentPage = lazy(() => import("./pages/PaymentPage"));
+
 function App() {
   return (
     <div className='App'>
@@ -42,8 +44,8 @@ function App() {
             <PublicRoute path="/signin" restricted component={SignIn} />
             <PublicRoute path="/signup" restricted component={SignUp} />
             <PublicRoute path="/trip" component={MyTripPage} />
+            <PublicRoute path="/payment" component={PaymentPage} />
             <PublicRoute path="/info" component={CustomerInformation} />
-
             <PrivateRoute
               path='/dashboard'
               role='admin'

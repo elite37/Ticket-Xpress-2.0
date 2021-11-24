@@ -1,0 +1,167 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.Payment_Container {
+  border: 2px solid rgb(9, 10, 97);
+  width: 50%;
+  padding: 25px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.Card_container {
+  border: 2px solid rgb(9, 10, 97);
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+.Card_container h1 {
+  font-size: 1.3rem;
+  color: #555;
+}
+.Card_container p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: poppins;
+}
+.text p {
+  padding-top: 15px;
+  font-size: 1.3rem;
+}
+.img_container {
+  display: flex;
+  gap: 20px;
+}
+.img_container img {
+  width: 100px;
+}
+.debitcard_img img {
+  width: 100%;
+}
+
+.rave_container {
+  position: relative;
+  border-top: 3px solid rgb(9, 10, 97);
+  width: 50%;
+  border-bottom: 3px solid rgb(9, 10, 97);
+}
+.btn {
+  background-color: rgb(9, 10, 97);
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  padding: 0px 10px;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.Icon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  gap: 30px;
+}
+
+.cardIcon_img {
+  text-decoration: none;
+}
+.cardIcon_img img {
+  width: 30px;
+}
+.cardIcon_img p {
+  font-size: 0.5rem;
+  color: #000;
+}
+.Secure_payment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.payBtn {
+  border: none;
+  padding: 15px;
+  background-color: rgb(9, 10, 97);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Secure_Booking {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+.Secure_feature {
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
+  gap: 40px;
+}
+.Secure_feature span {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+/* MEDIA QUERY */
+@media (max-width: 750px) {
+  .Payment_Container {
+    width: 90%;
+  }
+  .Card_container h1 {
+    font-size: 0.9rem;
+  }
+  .text p {
+    font-size: 1.4rem;
+  }
+  .Secure_Booking {
+    margin-top: 20px;
+    font-size: 1.3rem;
+  }
+  .Secure_feature span {
+    font-size: 1.2rem;
+  }
+  .cardIcon_img p {
+    font-size: 0.5rem;
+    color: #000;
+  }
+  .cardIcon_img img {
+    width: 35px;
+  }
+}
+@media (max-width: 450px) {
+  .Payment_Container {
+    width: 90%;
+  }
+  .Card_container h1 {
+    font-size: 0.8rem;
+  }
+  .text p {
+    font-size: 0.8rem;
+  }
+  .Secure_Booking {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  .Secure_feature span {
+    font-size: 0.65rem;
+  }
+  .cardIcon_img p {
+    font-size: 0.29rem;
+    color: #000;
+  }
+}
