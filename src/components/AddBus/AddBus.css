@@ -1,0 +1,19 @@
+.businput__container {
+  padding: 1.5rem;
+}
+
+.busButton {
+  background-color: #ce9315 !important;
+}
+
+.busButton:hover {
+  background-color: #b3831c !important;
+}
+
+.businput {
+  margin-bottom: 15px !important;
+  margin-right: 15px !important;
+}
+.businput__row {
+  display: flex;
+}

@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.dashboardLeft {
+  width: 20%;
+}
+
+.dashboardCenter {
+  width: 60%;
+}
+
+.dashboardCenter .destinationWrapper {
+  display: flex;
+}
+
+.dashboardCenter h1 {
+  display: flex;
+  font-size: 16px;
+  margin-right: 18px;
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0 8px;
+}
+
+.navWrapper  h1 span {
+  margin-left: 9px;
+}
+
+
+
+.dashboardRight {
+  width: 20%;
+}
+
+.dashboardRight .dashboardRightWrapper {
+  padding-right: 8px;
+}
+
+.dashboardRightWrapper h2 {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 5px 0;
+}
+

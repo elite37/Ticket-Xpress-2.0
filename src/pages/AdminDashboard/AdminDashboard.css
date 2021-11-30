@@ -1,0 +1,28 @@
+.dashboard {
+  height: 100vh;
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.dashboard main {
+  flex: 1;
+  padding: 1rem 0.8rem;
+}
+
+.data__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.dashboard__user {
+  color: rgb(107, 95, 95);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.dashboard__user h1 {
+  font-weight: 500;
+  font-size: 20px;
+}
