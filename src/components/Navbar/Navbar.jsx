@@ -38,13 +38,7 @@ function Navbar() {
         <div className='nav'>
           <ul className='lg-nav'>
             <li>
-              <Link to='/bus'>Bus</Link>
-            </li>
-            <li>
-              <Link to='/train'>Train</Link>
-            </li>
-            <li>
-              <Link to='/flight'>Flight</Link>
+              <Link to='/book'>Book</Link>
             </li>
             <li>
               <Link to='/tickets'>My Tickets </Link>

@@ -1,7 +1,14 @@
 .all {
+    height: 0;
     display: flex;
     flex-direction: column;
     row-gap: .2rem;
+    overflow: hidden;
+}
+
+.open {
+    transition: all 0.6180339887498547s ease;
+    height: 10%;
 }
 
 .entry {
