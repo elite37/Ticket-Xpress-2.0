@@ -1,0 +1,30 @@
+[
+    {
+        "fare": 37,
+        "curr": "NGN",
+        "exchange": "Can't be exchanged",
+        "refund": "Can't be refunded",
+        "legs": [
+            {
+                "arrPort": "Louisiana",
+                "arrDate": "15-04-2001",
+                "depPort": "Africana",
+                "depDate": "21-04-2001"
+            }
+        ]
+    },
+    {
+      "fare": 37,
+      "curr": "NGN",
+      "exchange": "Can't be exchanged",
+      "refund": "Can't be refunded",
+      "legs": [
+        {
+          "arrPort": "Louisiana",
+          "arrDate": "15-04-2001",
+          "depPort": "Africana",
+          "depDate": "21-04-2001"
+        }
+      ]
+    }
+]

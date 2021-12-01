@@ -14,7 +14,6 @@ export default function _() {
   let error;
 
   const getFlights = async () => {
-    console.log(flightState.depDate);
     let _depDate = new Date(flightState.depDate).toISOString().slice(0, -5);
     let inbound;
     let outbound = {
@@ -64,6 +63,34 @@ export default function _() {
       const fare = itn.AirItineraryPricingInfo[0].ItinTotalFare;
       store_itn.fare = fare.TotalFare.Amount;
       store_itn.curr = fare.TotalFare.CurrencyCode;
+      const penalties = {};
+
+      itn.AirItineraryPricingInfo.forEach((pricing) => {
+        pricing.PTC_FareBreakdowns.PTC_FareBreakdown.forEach((breakDown) => {
+          breakDown.PassengerFare.PenaltiesInfo.Penalty.forEach((penalty) => {
+            if (!penalties[penalty.Type]) {
+              penalties[penalty.Type] = {
+                applicability: penalty.Applicability,
+                changeable: penalty.Changeable,
+                refundable: penalty.Refundable,
+                amount: penalty.Amount,
+              };
+            }
+          });
+        });
+      });
+
+      if (penalties.Exchange && penalties.Exchange.changeable) {
+        store_itn.exchange = `Exchangeable for ${penalties.Exchange.amount}`;
+      } else {
+        store_itn.exchange = "Can't be exchanged";
+      }
+
+      if (penalties.Refund && penalties.Refund.refundable) {
+        store_itn.refund = "Refundable";
+      } else {
+        store_itn.refund = "Can't be refunded";
+      }
       itns.push(store_itn);
       id++;
     });
