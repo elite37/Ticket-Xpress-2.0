@@ -1,22 +1,19 @@
 import React from "react";
-
-// how to import a module css
-// PS the naming can be anything , not neccessarily footerStyles
-import footerStyles from "./Footer.module.css";
+import "./Footer.css";
 import Logo from "../../assets/images/logo.png";
 
 const Footer = () => {
   return (
     <footer>
-      <div className={footerStyles.footer__container}>
-        <div className={footerStyles.footer__row}>
-          <div className={footerStyles.footer__content}>
+      <div className='footer-container'>
+        <div className='footer-row'>
+          <div className='footer-content'>
             <h2>
               <img src={Logo} alt='logo' />
             </h2>
             <p>Book your Ticket in minute, get full control htmlFor much longer.</p>
           </div>
-          <div className={footerStyles.footer__content}>
+          <div className='footer-content'>
             <h2>Company</h2>
             <ul>
               <li>
@@ -30,7 +27,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className={footerStyles.footer__content}>
+          <div className='footer-content'>
             <h2>Contact</h2>
             <ul>
               <li>
@@ -44,7 +41,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className={footerStyles.footer__content}>
+          <div className='footer-content'>
             <h2>More</h2>
             <ul>
               <li>
@@ -60,7 +57,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className={footerStyles.right}>
+        <div className='right'>
           <p>All rights reserved@TicketExpresss.com</p>
         </div>
       </div>
